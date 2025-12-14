@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "必定AI,新一代AI一站式创意生产力平台",
+  "name": "必定AI新一代AI一站式创意生产力平台",
   "seo": {
     "metatags": {
       "keywords": "BuidAI, 必定AI, AI Agent, 开源智能体平台, 企业级AI, MCP, 知识库, 工作流, LLM聚合, AI应用开发"
@@ -71,6 +71,17 @@
             ]
           },
           {
+            "tab": "更新日志",
+            "groups": [
+              {
+                "group": "更新记录",
+                "pages": [
+                  "changelog"
+                ]
+              }
+            ]
+          },
+          {
             "tab": "API 参考",
             "groups": [
               {
@@ -86,17 +97,6 @@
                   "api-reference/endpoint/create",
                   "api-reference/endpoint/delete",
                   "api-reference/endpoint/webhook"
-                ]
-              }
-            ]
-          },
-          {
-            "tab": "更新日志",
-            "groups": [
-              {
-                "group": "更新记录",
-                "pages": [
-                  "changelog"
                 ]
               }
             ]
@@ -124,7 +124,7 @@
   },
   "footer": {
     "socials": {
-      "github": "https://github.com/mintlify"
+      "github": "https://github.com/buidai"
     }
   }
 }
