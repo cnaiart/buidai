@@ -52,6 +52,14 @@
               "develop/directory",
               "develop/config"
             ]
+          },
+          {
+            "group": "PC客户端",
+            "collapsed": true,
+            "pages": [
+              "pc-client/dev-docs",
+              "pc-client/build-docs"
+            ]
           }
         ]
       },
