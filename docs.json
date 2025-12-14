@@ -2,7 +2,6 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "必定AI",
-  "locale": "zh-CN",
   "colors": {
     "primary": "#2563EB",
     "light": "#3B82F6",
@@ -51,7 +50,7 @@
               "develop/Preposition",
               "develop/develop",
               "develop/directory",
-              "develop/windsurf"
+              "develop/config"
             ]
           }
         ]
