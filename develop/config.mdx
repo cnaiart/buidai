@@ -5,7 +5,7 @@ icon: 'cog'
 ---
 
 截止于 v25.0.5 版本，项目.env文件配置如下：
-```
+```bash .env
 # Base
 # 项目名称
 APP_NAME=BuildingAI
@@ -133,5 +133,90 @@ DOCKER_MEMORY_RESERVATION=512M
 # 固定数据库端口
 POSTGRES_EXTERNAL_PORT=
 # 固定 Redis 端口
+REDIS_EXTERNAL_PORT=
+```
+
+
+### 完整配置参考
+
+```bash .env
+# Base
+APP_NAME=buidai  // 项目名称
+# 如果部署到生产环境，请将其设置为真实地址
+APP_DOMAIN=https://www.buidai.com
+
+# Extension
+EXTENSION_API_URL=https://cloud.buildingai.cc/api
+
+# Server
+SERVER_PORT=4090
+SERVER_CORS_ENABLED=true
+SERVER_CORS_ORIGIN=*
+SERVER_SHOW_DETAILED_ERRORS=false
+SERVER_IS_DEMO_ENV=false
+
+# PM2
+PM2_APP_NAME=buidai  // PM2 应用名称
+PM2_INSTANCES=1
+PM2_EXEC_MODE=cluster
+PM2_MAX_MEMORY=1G
+PM2_WATCH=false
+PM2_LOG_DIR=../../logs/pm2
+PM2_AUTORESTART=true
+PM2_LOG_DATE_FORMAT=YYYY-MM-DD HH:mm:ss Z
+
+# JWT
+JWT_SECRET=buidai  // JWT 密钥
+# JWT 过期时间
+JWT_EXPIRES_IN=30d
+
+# Database
+DB_TYPE=postgres
+DB_HOST=localhost
+DB_PORT=5432
+DB_USERNAME=postgres
+DB_PASSWORD=postgres
+DB_DATABASE=buidai   // 数据库名称
+DB_SYNCHRONIZE=false
+DB_DEV_SYNCHRONIZE=true
+DB_LOGGING=true
+
+# Redis
+REDIS_HOST=localhost
+REDIS_PORT=6379
+REDIS_USERNAME=
+REDIS_PASSWORD=
+REDIS_DB=0
+REDIS_TTL=60*60*24  // Redis 缓存过期时间
+REDIS_MAX_RECONNECT_ATTEMPTS=5
+REDIS_RECONNECT_DELAY=3000
+
+# Cache
+CACHE_TTL=86400
+CACHE_MAX_ITEMS=1000
+
+# Logs
+# "log" | "error" | "warn" | "debug" | "verbose" | "fatal"
+LOG_LEVELS=error,warn,debug,fatal
+LOG_WRITE_LEVELS=error,warn,debug,fatal,log
+LOG_TO_FILE=true
+LOG_DATABASE_SCHEMA=false
+LOG_CLEAN_INTERVAL=3
+
+# Web
+VITE_DEVELOP_APP_BASE_URL=https://www.buidai.com
+# 如果部署到生产环境，请将其设置为真实地址
+VITE_PRODUCTION_APP_BASE_URL=https://www.buidai.com
+VITE_APP_WEB_API_PREFIX=/api
+VITE_APP_CONSOLE_API_PREFIX=/consoleapi
+
+# Docker
+NPM_REGISTRY_URL=https://registry.npmmirror.com
+DOCKER_CONTAINER_SUFFIX=
+DOCKER_MEMORY_LIMIT=6144M
+DOCKER_CPU_LIMIT=2.0
+DOCKER_MEMORY_RESERVATION=512M
+# 该选项将固定 Docker 容器中数据库与 Redis 的端口。
+POSTGRES_EXTERNAL_PORT=
 REDIS_EXTERNAL_PORT=
 ```
