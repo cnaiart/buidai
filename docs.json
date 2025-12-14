@@ -23,8 +23,10 @@
             ]
           },
           {
-            "group": "自定义设置",
+            "group": "安装与体验",
             "pages": [
+              "introduction/docker",
+              "introduction/bt",
               "essentials/settings",
               "essentials/navigation"
             ]
