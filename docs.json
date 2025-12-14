@@ -2,6 +2,19 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "必定AI",
+  "metadata": {
+    "keywords": [
+      "BuidAI",
+      "AI Agent",
+      "开源智能体平台",
+      "企业级AI",
+      "MCP",
+      "知识库",
+      "工作流",
+      "LLM聚合",
+      "AI应用开发"
+    ]
+  },
   "colors": {
     "primary": "#2563EB",
     "light": "#3B82F6",
