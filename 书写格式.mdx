@@ -1,552 +1,167 @@
-# 格式化代码
-
-> 显示和自定义行内代码与代码块的样式。
-
-<div id="adding-code-samples">
-  ## 添加代码示例
-</div>
-
-你可以添加行内代码片段或代码块。代码块支持用于语法高亮、title、行高亮、icon 等的元选项。
-
-<div id="inline-code">
-  ### 行内代码
-</div>
-
-要将某个 `word` 或 `phrase` 标记为代码，请用反引号 (\`) 将其括起来。
-
-```mdx  theme={null}
-要将 `word` 或 `phrase` 标记为代码,请用反引号(`)将其括起来。
-```
-
-<div id="code-blocks">
-  ### 代码块
-</div>
-
-使用[围栏代码块](https://www.markdownguide.org/extended-syntax/#fenced-code-blocks)：将代码包裹在三个反引号中。代码块支持复制，如果你启用了 AI 助手，用户可以让 AI 解释代码。
-
-指定编程语言，以启用语法高亮和元选项。在语言后添加任意元选项，比如 title 或 icon。
-
-<CodeGroup>
-  ```java HelloWorld.java example icon=java lines theme={null}
-  class HelloWorld {
-      public static void main(String[] args) {
-          System.out.println("Hello, World!");
-      }
-  }
-  ```
-
-  ````mdx Format theme={null}
-  ```java HelloWorld.java example lines icon="java"
-  class HelloWorld {
-      public static void main(String[] args) {
-          System.out.println("Hello, World!");
-      }
-  }
-  ```
-  ````
-</CodeGroup>
-
-<div id="code-block-options">
-  ## 代码块选项
-</div>
-
-为代码块添加元选项以自定义其展示效果。
-
-<Note>
-  在添加任何其他元选项之前，必须先为代码块指定编程语言。
-</Note>
-
-<div id="option-syntax">
-  ### 选项语法
-</div>
-
-* **字符串和布尔值选项**：可以使用 `""`、`''`，或不加引号括起来。
-* **表达式选项**：使用 `{}`、`""`，或 `''` 括起来。
-
-<div id="syntax-highlighting">
-  ### 语法高亮
-</div>
-
-通过在代码块起始反引号后添加编程语言来启用语法高亮。
-
-我们使用 [Shiki](https://shiki.style/) 进行语法高亮，并支持所有可用语言。完整的 [语言](https://shiki.style/languages) 列表请参见 Shiki 文档。
-
-在 `docs.json` 文件中使用 `styling.codeblocks` 全局自定义代码块主题。可以设置 `system` 或 `dark` 等简单主题，或为浅色和深色模式配置自定义 [Shiki 主题](https://shiki.style/themes)。配置选项参见 [Settings](/zh/organize/settings#param-styling)。
-
-<CodeGroup>
-  ```java Syntax highlighting example theme={null}
-  class HelloWorld {
-      public static void main(String[] args) {
-          System.out.println("Hello, World!");
-      }
-  }
-  ```
-
-  ````mdx Format theme={null}
-  ```java Syntax highlighting example
-  class HelloWorld {
-      public static void main(String[] args) {
-          System.out.println("Hello, World!");
-      }
-  }
-  ```
-  ````
-</CodeGroup>
-
-<Accordion title="自定义语法高亮主题">
-  对于自定义主题，在 `docs.json` 中将主题设置为 `"css-variables"`，并使用带有 `--mint-` 前缀的 CSS 变量覆盖语法高亮颜色。
-
-  可用的变量如下：
-
-  **基础颜色**
-
-  * `--mint-color-text`: 默认文本颜色
-  * `--mint-color-background`: 背景颜色
-
-  **标记颜色**
-
-  * `--mint-token-constant`: 常量和字面量
-  * `--mint-token-string`: 字符串值
-  * `--mint-token-comment`: 注释
-  * `--mint-token-keyword`: 关键字
-  * `--mint-token-parameter`: 函数参数
-  * `--mint-token-function`: 函数名
-  * `--mint-token-string-expression`: 字符串表达式
-  * `--mint-token-punctuation`: 标点符号
-  * `--mint-token-link`: 链接
-
-  **ANSI 颜色**
-
-  * `--mint-ansi-black`, `--mint-ansi-black-dim`
-  * `--mint-ansi-red`, `--mint-ansi-red-dim`
-  * `--mint-ansi-green`, `--mint-ansi-green-dim`
-  * `--mint-ansi-yellow`, `--mint-ansi-yellow-dim`
-  * `--mint-ansi-blue`, `--mint-ansi-blue-dim`
-  * `--mint-ansi-magenta`, `--mint-ansi-magenta-dim`
-  * `--mint-ansi-cyan`, `--mint-ansi-cyan-dim`
-  * `--mint-ansi-white`, `--mint-ansi-white-dim`
-  * `--mint-ansi-bright-black`, `--mint-ansi-bright-black-dim`
-  * `--mint-ansi-bright-red`, `--mint-ansi-bright-red-dim`
-  * `--mint-ansi-bright-green`, `--mint-ansi-bright-green-dim`
-  * `--mint-ansi-bright-yellow`, `--mint-ansi-bright-yellow-dim`
-  * `--mint-ansi-bright-blue`, `--mint-ansi-bright-blue-dim`
-  * `--mint-ansi-bright-magenta`, `--mint-ansi-bright-magenta-dim`
-  * `--mint-ansi-bright-cyan`, `--mint-ansi-bright-cyan-dim`
-  * `--mint-ansi-bright-white`, `--mint-ansi-bright-white-dim`
-
-  **自定义语法高亮**
-
-  通过提供自定义 TextMate 语法文件，为 Shiki 默认集合中未包含的语言添加语法高亮。创建一个遵循 [TextMate 语法格式](https://macromates.com/manual/en/language_grammars) 的 JSON 文件，然后在 `docs.json` 中引用它。你可以在数组中添加更多路径，以支持多个自定义语言。
-
-  ```json docs.json theme={null}
-  {
-    "styling": {
-      "codeblocks": {
-        "languages": {
-          "custom": ["/languages/my-custom-language.json"]
-        }
-      }
-    }
-  }
-  ```
-</Accordion>
-
-<div id="twoslash">
-  ### Twoslash
-</div>
-
-在 JavaScript 和 TypeScript 代码块中，使用 `twoslash` 来启用交互式类型信息。用户可以像在 IDE 中一样，将鼠标悬停在变量、函数和参数上查看类型和错误。
-
-<CodeGroup>
-  ```ts twoslash Twoslash example theme={null}
-  type Pet = "cat" | "dog" | "hamster";
-
-  function adoptPet(name: string, type: Pet) {
-    return `${name} the ${type} is now adopted!`;
-  }
-
-  // 将鼠标悬停以查看推断类型
-  const message = adoptPet("Mintie", "cat");
-  ```
-
-  ````mdx Format theme={null}
-  ```ts twoslash Twoslash example
-  type Pet = "cat" | "dog" | "hamster";
-
-  function adoptPet(name: string, type: Pet) {
-    return `${name} the ${type} is now adopted!`;
-  }
-
-  // 将鼠标悬停以查看推断类型
-  const message = adoptPet("Mintie", "cat");
-  ```
-  ````
-</CodeGroup>
-
-<div id="title">
-  ### 标题
-</div>
-
-为你的代码示例添加一个标题说明。使用 `title="Your title"` 或在单独一行写入字符串。
-
-<CodeGroup>
-  ```javascript 标题示例 theme={null}
-  const hello = "world";
-  ```
-
-  ````mdx 格式 theme={null}
-  ```javascript 标题示例
-  const hello = "world";
-  ```
-  ````
-</CodeGroup>
-
-<div id="icon">
-  ### 图标
-</div>
-
-使用 `icon` 属性为代码块添加图标。所有可用选项请参见 [图标](/zh/components/icons)。
-
-<CodeGroup>
-  ```javascript Icon example icon=square-js theme={null}
-  const hello = "world";
-  ```
-
-  ````mdx Format theme={null}
-  ```javascript Icon example icon="square-js"
-  const hello = "world";
-  ```
-  ````
-</CodeGroup>
-
-<div id="line-highlighting">
-  ### 行高亮
-</div>
-
-在代码块中使用带有行号或范围的 `highlight` 来高亮特定行。
-
-<CodeGroup>
-  ```javascript Line highlighting example {1,2,5} theme={null}
-  const greeting = "Hello, World!";
-  function sayHello() {
-    console.log(greeting);
-  }
-  sayHello();
-  ```
-
-  ````mdx Format theme={null}
-  ```javascript Line highlighting example highlight={1-2,5}
-  const greeting = "Hello, World!";
-  function sayHello() {
-    console.log(greeting);
-  }
-  sayHello();
-  ```
-  ````
-</CodeGroup>
-
-<div id="line-focusing">
-  ### 行聚焦
-</div>
-
-在代码块中使用带行号或行范围的 `focus` 来聚焦特定行。
-
-<CodeGroup>
-  ```javascript 行聚焦示例 focus=2,4,5 theme={null}
-  const greeting = "Hello, World!";
-  function sayHello() {
-    console.log(greeting);
-  }
-  sayHello();
-  ```
-
-  ````mdx 格式 theme={null}
-  ```javascript 行聚焦示例 focus={2,4-5}
-  const greeting = "Hello, World!";
-  function sayHello() {
-    console.log(greeting);
-  }
-  sayHello();
-  ```
-  ````
-</CodeGroup>
-
-<div id="show-line-numbers">
-  ### 显示行号
-</div>
-
-使用 `lines` 在代码块左侧显示行号。
-
-<CodeGroup>
-  ```javascript Show line numbers example lines theme={null}
-  const greeting = "Hello, World!";
-  function sayHello() {
-    console.log(greeting);
-  }
-  sayHello();
-  ```
-
-  ````mdx 格式 theme={null}
-  ```javascript Show line numbers example lines
-  const greeting = "Hello, World!";
-  function sayHello() {
-    console.log(greeting);
-  }
-  sayHello();
-  ```
-  ````
-</CodeGroup>
-
-<div id="expandable">
-  ### 可展开
-</div>
-
-允许用户使用 `expandable` 展开和折叠较长的代码块。
-
-<CodeGroup>
-  ```python Expandable example expandable theme={null}
-  from datetime import datetime, timedelta
-  from typing import Dict, List, Optional
-  from dataclasses import dataclass
-
-  @dataclass
-  class Book:
-  title: str
-  author: str
-  isbn: str
-  checked_out: bool = False
-  due_date: Optional[datetime] = None
-
-  class Library:
-  def **init**(self):
-  self.books: Dict[str, Book] = {}
-  self.checkouts: Dict[str, List[str]] = {} # 读者 -> ISBN 列表
-
-      def add_book(self, book: Book) -> None:
-          if book.isbn in self.books:
-              raise ValueError(f"Book with ISBN {book.isbn} already exists")
-          self.books[book.isbn] = book
-
-      def checkout_book(self, isbn: str, patron: str, days: int = 14) -> None:
-          if patron not in self.checkouts:
-              self.checkouts[patron] = []
-
-          book = self.books.get(isbn)
-          if not book:
-              raise ValueError("Book not found")
-
-          if book.checked_out:
-              raise ValueError("Book is already checked out")
-
-          if len(self.checkouts[patron]) >= 3:
-              raise ValueError("Patron has reached checkout limit")
-
-          book.checked_out = True
-          book.due_date = datetime.now() + timedelta(days=days)
-          self.checkouts[patron].append(isbn)
-
-      def return_book(self, isbn: str) -> float:
-          book = self.books.get(isbn)
-          if not book or not book.checked_out:
-              raise ValueError("Book not found or not checked out")
-
-          late_fee = 0.0
-          if datetime.now() > book.due_date:
-              days_late = (datetime.now() - book.due_date).days
-              late_fee = days_late * 0.50
-
-          book.checked_out = False
-          book.due_date = None
-
-          # 从读者的借阅列表中移除
-          for patron, books in self.checkouts.items():
-              if isbn in books:
-                  books.remove(isbn)
-                  break
-
-          return late_fee
-
-      def search(self, query: str) -> List[Book]:
-          query = query.lower()
-          return [
-              book for book in self.books.values()
-              if query in book.title.lower() or query in book.author.lower()
-          ]
-
-  def main():
-  library = Library()
-
-      # 添加一些图书
-      books = [
-          Book("The Hobbit", "J.R.R. Tolkien", "978-0-261-10295-4"),
-          Book("1984", "George Orwell", "978-0-452-28423-4"),
-      ]
-
-      for book in books:
-          library.add_book(book)
-
-      # 借阅和归还示例
-      library.checkout_book("978-0-261-10295-4", "patron123")
-      late_fee = library.return_book("978-0-261-10295-4")
-      print(f"Late fee: ${late_fee:.2f}")
-
-  if **name** == "**main**":
-  main()
-  ```
-
-  ````text 格式 theme={null}
-  ```python Expandable example expandable
-  from datetime import datetime, timedelta
-  from typing import Dict, List, Optional
-  from dataclasses import dataclass
-
-  # ...
-
-  if __name__ == "__main__":
-      main()
-  ```
-  ````
-</CodeGroup>
-
-<div id="wrap">
-  ### 自动换行
-</div>
-
-使用 `wrap` 为长行文本启用自动换行。这样可以避免水平滚动，并让长行内容更易阅读。
-
-<CodeGroup>
-  ```javascript Wrap example wrap theme={null}
-  const greeting =
-    "Hello, World! I am a long line of text that will wrap to the next line.";
-  function sayHello() {
-    console.log(greeting);
-  }
-  sayHello();
-  ```
-
-  ````mdx Format theme={null}
-  ```javascript Wrap example wrap
-  const greeting =
-    "Hello, World! I am a long line of text that will wrap to the next line.";
-  function sayHello() {
-    console.log(greeting);
-  }
-  sayHello();
-  ```
-  ````
-</CodeGroup>
-
-<div id="diff">
-  ### Diff
-</div>
-
-在你的代码块中以可视化方式展示新增或删除的行。新增行会以绿色高亮，删除行会以红色高亮。
-
-要创建 diff，请在代码块中每行末尾添加这些特殊注释：
-
-* `// [!code ++]`：将该行标记为新增（绿色高亮）。
-* `// [!code --]`：将该行标记为删除（红色高亮）。
-
-对于多行连续的情况，可以在冒号后指定行数：
-
-* `// [!code ++:3]`：将当前行和接下来的两行标记为新增。
-* `// [!code --:5]`：将当前行和接下来的四行标记为删除。
-
-注释语法必须与你所使用的编程语言相匹配（例如，JavaScript 使用 `//`，Python 使用 `#`）。
-
-<CodeGroup>
-  ```js Diff example lines theme={null}
-  const greeting = "Hello, World!"; // [!code ++]
-  function sayHello() {
-    console.log("Hello, World!"); // [!code --]
-    console.log(greeting); // [!code ++]
-  }
-  sayHello();
-  ```
-
-  ````text Format theme={null}
-  ```js Diff example lines
-  const greeting = "Hello, World!"; // [!code ++]
-  function sayHello() {
-    console.log("Hello, World!"); // [!code --]
-    console.log(greeting); // [!code ++]
-  }
-  sayHello();
-  ```
-  ````
-</CodeGroup>
-
-<div id="codeblock-component">
-  ## CodeBlock 组件
-</div>
-
-在自定义 React 组件中使用 `<CodeBlock>` 组件，以编程方式渲染代码块，使其具有与 Markdown 代码块相同的样式和功能。
-
-<div id="props">
-  ### Props
-</div>
-
-<ResponseField name="language" type="string">
-  用于语法高亮的编程语言。
-</ResponseField>
-
-<ResponseField name="filename" type="string">
-  要在代码块标题中显示的文件名。
-</ResponseField>
-
-<ResponseField name="icon" type="string">
-  要在代码块标题中显示的 icon。可用选项请参见 [Icons](/zh/components/icons)。
-</ResponseField>
-
-<ResponseField name="lines" type="boolean">
-  是否显示行号。
-</ResponseField>
-
-<ResponseField name="wrap" type="boolean">
-  是否对代码块内容进行换行显示。
-</ResponseField>
-
-<ResponseField name="expandable" type="boolean">
-  代码块是否可展开。
-</ResponseField>
-
-<ResponseField name="highlight" type="string">
-  需要高亮的行。请提供数字数组的字符串形式。例如：
-  `"[1,3,4,5]"`。
-</ResponseField>
-
-<ResponseField name="focus" type="string">
-  需要聚焦的行。请提供数字数组的字符串形式。例如：
-  `"[1,3,4,5]"`。
-</ResponseField>
-
-<div id="example">
-  ### 示例
-</div>
-
-```jsx  theme={null}
-export const CustomCodeBlock = ({
-  filename,
-  icon,
-  language,
-  highlight,
-  children,
-}) => {
-  return (
-    <CodeBlock
-      filename={filename}
-      icon={icon}
-      language={language}
-      lines
-      highlight={highlight}
-    >
-      {children}
-    </CodeBlock>
-  );
-};
-```
-
-
----
-
-> To find navigation and other pages in this documentation, fetch the llms.txt file at: https://mintlify.com/docs/llms.txt
+手动安装
+通过手动安装 BuildingAI
+
+环境准备
+NodeJS ≥22 官网下载地址
+PostgreSQL ≥15 官网下载地址
+Redis ≥6.2 官网下载地址
+安装好之后验证是否安装成功
+
+
+node -v
+npm -v
+psql --version
+redis-cli --version
+拉取代码到本地
+
+# Gitee仓库
+git clone https://gitee.com/BidingCC/BuildingAI.git
+# or Github仓库
+git clone https://github.com/BidingCC/BuildingAI.git
+安装依赖
+如果网络慢，可以先配置淘宝镜像：
+
+
+npm config set registry https://registry.npmmirror.com
+
+# 如果没有pnpm，需要先安装pnpm
+npm install -g pnpm
+# 进入项目目录
+cd BuildingAI
+# 安装依赖
+pnpm install
+配置环境变量
+
+cp .env.example .env
+根据你的实际环境配置，编辑 .env 文件，配置数据库连接、Redis连接等环境变量配置
+
+
+# 示例
+# Base
+# 应用名称（用于日志、PM2等标识）
+APP_NAME=BuildingAI
+# 应用版本号（用于信息展示或灰度控制）
+APP_VERSION=25.0.0
+# Extension
+# 扩展 API 服务地址
+EXTENSION_API_URL=http://cloud.buildingai.cc/api
+# Server
+# 后端服务监听端口
+SERVER_PORT=4090
+# 是否启用 CORS（跨域资源共享）
+SERVER_CORS_ENABLED=true
+# CORS 允许的来源，* 表示允许任意来源（生产环境建议指定具体域名）
+SERVER_CORS_ORIGIN=*
+# 是否显示详细错误信息（仅建议在开发环境开启）
+SERVER_SHOW_DETAILED_ERRORS=false
+# 是否演示环境（开启后可能限制写入/危险操作）
+SERVER_IS_DEMO_ENV=false
+# PM2
+# PM2 进程名称（使用 pm2 启动/管理时的标识）
+PM2_APP_NAME=buildingai
+# PM2 启动实例数量
+PM2_INSTANCES=1
+# PM2 执行模式（cluster 集群模式，fork 单进程模式）
+PM2_EXEC_MODE=cluster
+# PM2 最大内存限制（超过此值会自动重启）
+PM2_MAX_MEMORY=1G
+# PM2 是否监听文件变化自动重启
+PM2_WATCH=false
+# PM2 日志文件目录
+PM2_LOG_DIR=../../logs/pm2
+# PM2 是否自动重启（进程异常退出时）
+PM2_AUTORESTART=true
+# PM2 日志时间格式
+PM2_LOG_DATE_FORMAT=YYYY-MM-DD HH:mm:ss Z
+# JWT
+# JWT 签名密钥（请在生产环境务必更换为强随机值）
+JWT_SECRET=buildingai
+# JWT 过期时间（如：60s, 10m, 1h, 1d）
+JWT_EXPIRES_IN=1d
+# Database
+# 数据库类型（例如：postgres、mysql）
+DB_TYPE=postgres
+# 数据库主机地址
+DB_HOST=localhost
+# 数据库端口
+DB_PORT=5432
+# 数据库用户名
+DB_USERNAME=postgres
+# 数据库密码
+DB_PASSWORD=postgres
+# 数据库名称
+DB_DATABASE=buildingai
+# 是否自动同步实体到数据库（生产环境谨慎开启，建议设为 false）
+DB_SYNCHRONIZE=false
+# 开发环境是否自动同步（开发时可设为 true）
+DB_DEV_SYNCHRONIZE=true
+# 是否输出 SQL 日志
+DB_LOGGING=true
+# Redis
+# Redis 主机地址
+REDIS_HOST=localhost
+# Redis 端口
+REDIS_PORT=6379
+# Redis 用户名（如未启用 ACL 可留空）
+REDIS_USERNAME=
+# Redis 密码（如无密码可留空）
+REDIS_PASSWORD=
+# Redis 数据库索引（0-15）
+REDIS_DB=0
+# 缓存默认过期时间（秒），支持表达式：60*60*24 表示 1 天
+REDIS_TTL=60*60*24
+# Redis 最大重连尝试次数
+REDIS_MAX_RECONNECT_ATTEMPTS=5
+# Redis 重连延迟时间（毫秒）
+REDIS_RECONNECT_DELAY=3000
+# Cache
+# 缓存过期时间（秒）
+CACHE_TTL=86400
+# 缓存最大条目数
+CACHE_MAX_ITEMS=1000
+# Logs
+# 日志级别类型："log" | "error" | "warn" | "debug" | "verbose" | "fatal"
+# 输出的日志级别（逗号分隔，按需选择）
+LOG_LEVELS=error,warn,debug,fatal
+# 写入文件的日志级别（逗号分隔）
+LOG_WRITE_LEVELS=error,warn,debug,fatal,log
+# 是否将日志写入文件（需确保有写入权限）
+LOG_TO_FILE=true
+# 是否打印数据库 schema 变更信息（用于调试）
+LOG_DATABASE_SCHEMA=false
+# 日志清理间隔（天）
+LOG_CLEAN_INTERVAL=3
+# Web
+# 前端接口请求域名（如果部署到生产环境，请设置为真实 URL）
+VITE_APP_BASE_URL=http://localhost:4090
+# Web 与服务端通讯的 API 前缀
+VITE_APP_WEB_API_PREFIX=/api
+# 控制台管理端 API 前缀
+VITE_APP_CONSOLE_API_PREFIX=/consoleapi
+# Docker
+# 是否使用快速启动模式（可能跳过部分检查/初始化）
+QUICK_START_MODE=false
+# 容器名称后缀（便于区分不同环境/开发者）
+DOCKER_CONTAINER_SUFFIX=
+# 此选项将使 Docker 容器中的数据库和 Redis 端口固定
+# 数据库外部映射端口（用于将容器内 5432 暴露到宿主机）
+DB_EXTERNAL_PORT=5432
+# Redis 外部映射端口（用于将容器内 6379 暴露到宿主机）
+REDIS_EXTERNAL_PORT=6379
+启动服务
+数据库实体会自动同步，无需单独操作
+
+一键启动所有服务
+
+cd /BuildingAI
+pnpm start
+单独启动服务
+
+# 单独启动server
+cd /BuildingAI/packages/api
+pnpm dev
+# 单独启动web
+cd /BuildingAI/packages/web/buildingai-ui
+pnpm dev
+访问地址
+本地部署访问地址：http://localhost:4090
