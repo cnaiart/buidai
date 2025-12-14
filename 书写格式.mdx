@@ -1,299 +1,550 @@
-# 快速入门
+# 格式化代码
 
-> 部署你的文档站点并完成首次更改。
+> 显示和自定义行内代码与代码块的样式。
 
-完成本指南后，你将拥有一个已上线的文档站点，可以开始对其进行自定义和扩展。
-
-<Info>
-  **前提条件**：在开始之前，请先[创建账户](https://mintlify.com/start)并完成引导流程。
-</Info>
-
-<div id="getting-started">
-  ## 快速开始
+<div id="adding-code-samples">
+  ## 添加代码示例
 </div>
 
-完成入门引导后，你的文档站点会自动部署到一个符合以下格式的唯一 URL：
+你可以添加行内代码片段或代码块。代码块支持用于语法高亮、title、行高亮、icon 等的元选项。
 
+<div id="inline-code">
+  ### 行内代码
+</div>
+
+要将某个 `word` 或 `phrase` 标记为代码，请用反引号 (\`) 将其括起来。
+
+```mdx  theme={null}
+要将 `word` 或 `phrase` 标记为代码,请用反引号(`)将其括起来。
 ```
-https://<你的项目名称>.mintlify.app
-```
 
-在你的[控制台](https://dashboard.mintlify.com/)的概览（Overview）页面中找到你的 URL。
-
-<Frame>
-  <img src="https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/mintlify-domain-light.png?fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=282a86eda5f3ab5d9723b62a330ea2af" alt="Mintlify 域名" className="block dark:hidden" data-og-width="3024" width="3024" data-og-height="1372" height="1372" data-path="images/quickstart/mintlify-domain-light.png" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/mintlify-domain-light.png?w=280&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=c4933a71649fc4bb51e8dcf04acd2b24 280w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/mintlify-domain-light.png?w=560&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=0584bdd9f07c8474f288d09cf95422f5 560w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/mintlify-domain-light.png?w=840&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=9ab37f154b08aa9745b80f90513575c6 840w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/mintlify-domain-light.png?w=1100&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=0a8096fe65863b7329d7cfa3e4906af1 1100w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/mintlify-domain-light.png?w=1650&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=09bd9e97fd49c725767972ff64ef687b 1650w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/mintlify-domain-light.png?w=2500&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=7dd2acf06a84d72eb3fbb3bfcecf3d2a 2500w" />
-
-  <img src="https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/mintlify-domain-dark.png?fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=cd2c945d8bb3c8deb4c655816e72d134" alt="Mintlify 域名" className="hidden dark:block" data-og-width="3008" width="3008" data-og-height="1368" height="1368" data-path="images/quickstart/mintlify-domain-dark.png" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/mintlify-domain-dark.png?w=280&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=16b7491bafd93b20460428137a42786c 280w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/mintlify-domain-dark.png?w=560&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=a0f2b6d6c4c4f14c6a0c5477496ca5df 560w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/mintlify-domain-dark.png?w=840&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=58dadc6099408743417376066aff5be9 840w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/mintlify-domain-dark.png?w=1100&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=f20cfe683670a53e226232593b5c3e21 1100w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/mintlify-domain-dark.png?w=1650&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=a50c22e99c515703cce5aa3ca72a053d 1650w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/mintlify-domain-dark.png?w=2500&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=d480538faf8fde8e3f1955b7e966b0e2 2500w" />
-</Frame>
-
-你的网站 URL 会立即生效。在你设置文档站点的过程中，可以使用这个 URL 进行测试并与团队分享。
-
-<div id="install-the-github-app">
-  ### 安装 GitHub 应用
+<div id="code-blocks">
+  ### 代码块
 </div>
 
-Mintlify 提供了一个 GitHub 应用，你在将更改推送到仓库时，它会自动触发部署。
+使用[围栏代码块](https://www.markdownguide.org/extended-syntax/#fenced-code-blocks)：将代码包裹在三个反引号中。代码块支持复制，如果你启用了 AI 助手，用户可以让 AI 解释代码。
 
-按照新手引导清单或仪表盘中的指引来安装 GitHub 应用。
-
-1. 在 Mintlify 仪表盘中前往 **Settings**。
-2. 在侧边栏中选择 **GitHub App**。
-3. 选择 **Install GitHub App**。这会在新标签页中打开 GitHub 应用的安装页面。
-4. 选择你希望安装该应用的组织或用户账号。
-5. 选择你想要连接的仓库。
-
-<Frame>
-  <img src="https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/github-app-installation-light.png?fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=47bff992030035a04156279e05e419a4" alt="GitHub 应用安装" className="block dark:hidden" data-og-width="3024" width="3024" data-og-height="910" height="910" data-path="images/quickstart/github-app-installation-light.png" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/github-app-installation-light.png?w=280&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=2f19d0e03136827cb200a81627561d5f 280w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/github-app-installation-light.png?w=560&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=54002d522c6325755f480ab2d0d70d47 560w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/github-app-installation-light.png?w=840&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=a68861931564125105d5cb227d13f87a 840w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/github-app-installation-light.png?w=1100&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=94bf8837cd595aec5b8325c8932a5c6c 1100w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/github-app-installation-light.png?w=1650&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=5689a6c72f0fe3e384469e4a313f74cd 1650w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/github-app-installation-light.png?w=2500&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=40f4c04a13a6084630ecdd560219e5ca 2500w" />
-
-  <img src="https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/github-app-installation-dark.png?fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=bf9a57882cce0e8ab797adde7e9727f8" alt="GitHub 应用安装" className="hidden dark:block" data-og-width="3016" width="3016" data-og-height="906" height="906" data-path="images/quickstart/github-app-installation-dark.png" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/github-app-installation-dark.png?w=280&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=c94c4b055edf403844283dc340df29d0 280w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/github-app-installation-dark.png?w=560&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=906fff49f4d1b984cfaad5b18f588597 560w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/github-app-installation-dark.png?w=840&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=6b4545e0325c44a3503a3f3c65c86e12 840w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/github-app-installation-dark.png?w=1100&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=36ed35bfa53cda29a40b12c430c830e8 1100w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/github-app-installation-dark.png?w=1650&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=4656677dad775a44bff41fc6e072cec3 1650w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/github-app-installation-dark.png?w=2500&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=804d257a8efe260cd04511fa3d5b21cb 2500w" />
-</Frame>
-
-<Info>
-  如果你将文档迁移到其他仓库，请更新 GitHub 应用的权限。
-</Info>
-
-<div id="authorize-your-github-account">
-  ### 授权你的 GitHub 账户
-</div>
-
-1. 在 Mintlify 控制台前往 **Settings**。
-2. 在侧边栏选择 **My Profile**。
-3. 选择 **Authorize GitHub account**。会在新标签页中打开 GitHub 授权页面。
-
-<Info>
-  根据你组织的设置，你的 GitHub 组织管理员可能需要为你的账户进行授权。
-</Info>
-
-<div id="editing-workflows">
-  ## 编辑工作流程
-</div>
-
-Mintlify 提供两种用于创建和维护文档的工作流程：
-
-<Card title="基于代码的工作流程" icon="terminal" horizontal href="#code-based-workflow">
-  适合在本地环境中配合现有工具工作的用户。点击跳转到该章节。
-</Card>
-
-<Card title="网页编辑器工作流程" icon="mouse-pointer-2" horizontal href="#web-editor-workflow">
-  适合在网页浏览器中使用可视化界面的用户。点击跳转到该章节。
-</Card>
-
-<div id="code-based-workflow">
-  ## 基于代码的工作流
-</div>
-
-基于代码的工作流可与您现有的开发环境和 Git 仓库集成。该工作流最适合希望将文档与代码并行管理的技术团队。
-
-<div id="install-the-cli">
-  ### 安装 CLI
-</div>
-
-<Info>
-  **前置条件**：CLI 需要 [Node.js](https://nodejs.org/en) v20.17.0 至 v24 之间的版本（含 v20.17.0），推荐使用 LTS 版本。
-</Info>
-
-要在本地编辑你的文档，请在终端中运行以下命令安装名为 [mint](https://www.npmjs.com/package/mint) 的命令行工具（CLI）：
+指定编程语言，以启用语法高亮和元选项。在语言后添加任意元选项，比如 title 或 icon。
 
 <CodeGroup>
-  ```bash npm theme={null}
-  npm i -g mint
+  ```java HelloWorld.java example icon=java lines theme={null}
+  class HelloWorld {
+      public static void main(String[] args) {
+          System.out.println("Hello, World!");
+      }
+  }
   ```
 
-  ```bash pnpm theme={null}
-  pnpm add -g mint
+  ````mdx Format theme={null}
+  ```java HelloWorld.java example lines icon="java"
+  class HelloWorld {
+      public static void main(String[] args) {
+          System.out.println("Hello, World!");
+      }
+  }
   ```
+  ````
 </CodeGroup>
 
-<div id="create-a-new-project">
-  ### 创建新项目
+<div id="code-block-options">
+  ## 代码块选项
 </div>
 
-运行 `mint new` 以创建一个新的文档项目。关于该命令及其可用选项的详细说明，请参阅 [命令行界面（CLI）安装指南](/zh/installation#create-a-new-project)。
+为代码块添加元选项以自定义其展示效果。
 
-<div id="edit-the-documentation">
-  ### 编辑文档
+<Note>
+  在添加任何其他元选项之前，必须先为代码块指定编程语言。
+</Note>
+
+<div id="option-syntax">
+  ### 选项语法
 </div>
 
-完成项目设置后，你就可以开始编辑文档文件了。例如，更新介绍页面的标题：
+* **字符串和布尔值选项**：可以使用 `""`、`''`，或不加引号括起来。
+* **表达式选项**：使用 `{}`、`""`，或 `''` 括起来。
 
-1. 打开你的文档存储库。
-2. 打开 `index.mdx`，找到文件顶部：
+<div id="syntax-highlighting">
+  ### 语法高亮
+</div>
 
-```mdx index.mdx theme={null}
----
-title: "简介"
-description: "这是文档的介绍"
----
+通过在代码块起始反引号后添加编程语言来启用语法高亮。
+
+我们使用 [Shiki](https://shiki.style/) 进行语法高亮，并支持所有可用语言。完整的 [语言](https://shiki.style/languages) 列表请参见 Shiki 文档。
+
+在 `docs.json` 文件中使用 `styling.codeblocks` 全局自定义代码块主题。可以设置 `system` 或 `dark` 等简单主题，或为浅色和深色模式配置自定义 [Shiki 主题](https://shiki.style/themes)。配置选项参见 [Settings](/zh/organize/settings#param-styling)。
+
+<CodeGroup>
+  ```java Syntax highlighting example theme={null}
+  class HelloWorld {
+      public static void main(String[] args) {
+          System.out.println("Hello, World!");
+      }
+  }
+  ```
+
+  ````mdx Format theme={null}
+  ```java Syntax highlighting example
+  class HelloWorld {
+      public static void main(String[] args) {
+          System.out.println("Hello, World!");
+      }
+  }
+  ```
+  ````
+</CodeGroup>
+
+<Accordion title="自定义语法高亮主题">
+  对于自定义主题，在 `docs.json` 中将主题设置为 `"css-variables"`，并使用带有 `--mint-` 前缀的 CSS 变量覆盖语法高亮颜色。
+
+  可用的变量如下：
+
+  **基础颜色**
+
+  * `--mint-color-text`: 默认文本颜色
+  * `--mint-color-background`: 背景颜色
+
+  **标记颜色**
+
+  * `--mint-token-constant`: 常量和字面量
+  * `--mint-token-string`: 字符串值
+  * `--mint-token-comment`: 注释
+  * `--mint-token-keyword`: 关键字
+  * `--mint-token-parameter`: 函数参数
+  * `--mint-token-function`: 函数名
+  * `--mint-token-string-expression`: 字符串表达式
+  * `--mint-token-punctuation`: 标点符号
+  * `--mint-token-link`: 链接
+
+  **ANSI 颜色**
+
+  * `--mint-ansi-black`, `--mint-ansi-black-dim`
+  * `--mint-ansi-red`, `--mint-ansi-red-dim`
+  * `--mint-ansi-green`, `--mint-ansi-green-dim`
+  * `--mint-ansi-yellow`, `--mint-ansi-yellow-dim`
+  * `--mint-ansi-blue`, `--mint-ansi-blue-dim`
+  * `--mint-ansi-magenta`, `--mint-ansi-magenta-dim`
+  * `--mint-ansi-cyan`, `--mint-ansi-cyan-dim`
+  * `--mint-ansi-white`, `--mint-ansi-white-dim`
+  * `--mint-ansi-bright-black`, `--mint-ansi-bright-black-dim`
+  * `--mint-ansi-bright-red`, `--mint-ansi-bright-red-dim`
+  * `--mint-ansi-bright-green`, `--mint-ansi-bright-green-dim`
+  * `--mint-ansi-bright-yellow`, `--mint-ansi-bright-yellow-dim`
+  * `--mint-ansi-bright-blue`, `--mint-ansi-bright-blue-dim`
+  * `--mint-ansi-bright-magenta`, `--mint-ansi-bright-magenta-dim`
+  * `--mint-ansi-bright-cyan`, `--mint-ansi-bright-cyan-dim`
+  * `--mint-ansi-bright-white`, `--mint-ansi-bright-white-dim`
+
+  **自定义语法高亮**
+
+  通过提供自定义 TextMate 语法文件，为 Shiki 默认集合中未包含的语言添加语法高亮。创建一个遵循 [TextMate 语法格式](https://macromates.com/manual/en/language_grammars) 的 JSON 文件，然后在 `docs.json` 中引用它。你可以在数组中添加更多路径，以支持多个自定义语言。
+
+  ```json docs.json theme={null}
+  {
+    "styling": {
+      "codeblocks": {
+        "languages": {
+          "custom": ["/languages/my-custom-language.json"]
+        }
+      }
+    }
+  }
+  ```
+</Accordion>
+
+<div id="twoslash">
+  ### Twoslash
+</div>
+
+在 JavaScript 和 TypeScript 代码块中，使用 `twoslash` 来启用交互式类型信息。用户可以像在 IDE 中一样，将鼠标悬停在变量、函数和参数上查看类型和错误。
+
+<CodeGroup>
+  ```ts twoslash Twoslash example theme={null}
+  type Pet = "cat" | "dog" | "hamster";
+
+  function adoptPet(name: string, type: Pet) {
+    return `${name} the ${type} is now adopted!`;
+  }
+
+  // 将鼠标悬停以查看推断类型
+  const message = adoptPet("Mintie", "cat");
+  ```
+
+  ````mdx Format theme={null}
+  ```ts twoslash Twoslash example
+  type Pet = "cat" | "dog" | "hamster";
+
+  function adoptPet(name: string, type: Pet) {
+    return `${name} the ${type} is now adopted!`;
+  }
+
+  // 将鼠标悬停以查看推断类型
+  const message = adoptPet("Mintie", "cat");
+  ```
+  ````
+</CodeGroup>
+
+<div id="title">
+  ### 标题
+</div>
+
+为你的代码示例添加一个标题说明。使用 `title="Your title"` 或在单独一行写入字符串。
+
+<CodeGroup>
+  ```javascript 标题示例 theme={null}
+  const hello = "world";
+  ```
+
+  ````mdx 格式 theme={null}
+  ```javascript 标题示例
+  const hello = "world";
+  ```
+  ````
+</CodeGroup>
+
+<div id="icon">
+  ### 图标
+</div>
+
+使用 `icon` 属性为代码块添加图标。所有可用选项请参见 [图标](/zh/components/icons)。
+
+<CodeGroup>
+  ```javascript Icon example icon=square-js theme={null}
+  const hello = "world";
+  ```
+
+  ````mdx Format theme={null}
+  ```javascript Icon example icon="square-js"
+  const hello = "world";
+  ```
+  ````
+</CodeGroup>
+
+<div id="line-highlighting">
+  ### 行高亮
+</div>
+
+在代码块中使用带有行号或范围的 `highlight` 来高亮特定行。
+
+<CodeGroup>
+  ```javascript Line highlighting example {1,2,5} theme={null}
+  const greeting = "Hello, World!";
+  function sayHello() {
+    console.log(greeting);
+  }
+  sayHello();
+  ```
+
+  ````mdx Format theme={null}
+  ```javascript Line highlighting example highlight={1-2,5}
+  const greeting = "Hello, World!";
+  function sayHello() {
+    console.log(greeting);
+  }
+  sayHello();
+  ```
+  ````
+</CodeGroup>
+
+<div id="line-focusing">
+  ### 行聚焦
+</div>
+
+在代码块中使用带行号或行范围的 `focus` 来聚焦特定行。
+
+<CodeGroup>
+  ```javascript 行聚焦示例 focus=2,4,5 theme={null}
+  const greeting = "Hello, World!";
+  function sayHello() {
+    console.log(greeting);
+  }
+  sayHello();
+  ```
+
+  ````mdx 格式 theme={null}
+  ```javascript 行聚焦示例 focus={2,4-5}
+  const greeting = "Hello, World!";
+  function sayHello() {
+    console.log(greeting);
+  }
+  sayHello();
+  ```
+  ````
+</CodeGroup>
+
+<div id="show-line-numbers">
+  ### 显示行号
+</div>
+
+使用 `lines` 在代码块左侧显示行号。
+
+<CodeGroup>
+  ```javascript Show line numbers example lines theme={null}
+  const greeting = "Hello, World!";
+  function sayHello() {
+    console.log(greeting);
+  }
+  sayHello();
+  ```
+
+  ````mdx 格式 theme={null}
+  ```javascript Show line numbers example lines
+  const greeting = "Hello, World!";
+  function sayHello() {
+    console.log(greeting);
+  }
+  sayHello();
+  ```
+  ````
+</CodeGroup>
+
+<div id="expandable">
+  ### 可展开
+</div>
+
+允许用户使用 `expandable` 展开和折叠较长的代码块。
+
+<CodeGroup>
+  ```python Expandable example expandable theme={null}
+  from datetime import datetime, timedelta
+  from typing import Dict, List, Optional
+  from dataclasses import dataclass
+
+  @dataclass
+  class Book:
+  title: str
+  author: str
+  isbn: str
+  checked_out: bool = False
+  due_date: Optional[datetime] = None
+
+  class Library:
+  def **init**(self):
+  self.books: Dict[str, Book] = {}
+  self.checkouts: Dict[str, List[str]] = {} # 读者 -> ISBN 列表
+
+      def add_book(self, book: Book) -> None:
+          if book.isbn in self.books:
+              raise ValueError(f"Book with ISBN {book.isbn} already exists")
+          self.books[book.isbn] = book
+
+      def checkout_book(self, isbn: str, patron: str, days: int = 14) -> None:
+          if patron not in self.checkouts:
+              self.checkouts[patron] = []
+
+          book = self.books.get(isbn)
+          if not book:
+              raise ValueError("Book not found")
+
+          if book.checked_out:
+              raise ValueError("Book is already checked out")
+
+          if len(self.checkouts[patron]) >= 3:
+              raise ValueError("Patron has reached checkout limit")
+
+          book.checked_out = True
+          book.due_date = datetime.now() + timedelta(days=days)
+          self.checkouts[patron].append(isbn)
+
+      def return_book(self, isbn: str) -> float:
+          book = self.books.get(isbn)
+          if not book or not book.checked_out:
+              raise ValueError("Book not found or not checked out")
+
+          late_fee = 0.0
+          if datetime.now() > book.due_date:
+              days_late = (datetime.now() - book.due_date).days
+              late_fee = days_late * 0.50
+
+          book.checked_out = False
+          book.due_date = None
+
+          # 从读者的借阅列表中移除
+          for patron, books in self.checkouts.items():
+              if isbn in books:
+                  books.remove(isbn)
+                  break
+
+          return late_fee
+
+      def search(self, query: str) -> List[Book]:
+          query = query.lower()
+          return [
+              book for book in self.books.values()
+              if query in book.title.lower() or query in book.author.lower()
+          ]
+
+  def main():
+  library = Library()
+
+      # 添加一些图书
+      books = [
+          Book("The Hobbit", "J.R.R. Tolkien", "978-0-261-10295-4"),
+          Book("1984", "George Orwell", "978-0-452-28423-4"),
+      ]
+
+      for book in books:
+          library.add_book(book)
+
+      # 借阅和归还示例
+      library.checkout_book("978-0-261-10295-4", "patron123")
+      late_fee = library.return_book("978-0-261-10295-4")
+      print(f"Late fee: ${late_fee:.2f}")
+
+  if **name** == "**main**":
+  main()
+  ```
+
+  ````text 格式 theme={null}
+  ```python Expandable example expandable
+  from datetime import datetime, timedelta
+  from typing import Dict, List, Optional
+  from dataclasses import dataclass
+
+  # ...
+
+  if __name__ == "__main__":
+      main()
+  ```
+  ````
+</CodeGroup>
+
+<div id="wrap">
+  ### 自动换行
+</div>
+
+使用 `wrap` 为长行文本启用自动换行。这样可以避免水平滚动，并让长行内容更易阅读。
+
+<CodeGroup>
+  ```javascript Wrap example wrap theme={null}
+  const greeting =
+    "Hello, World! I am a long line of text that will wrap to the next line.";
+  function sayHello() {
+    console.log(greeting);
+  }
+  sayHello();
+  ```
+
+  ````mdx Format theme={null}
+  ```javascript Wrap example wrap
+  const greeting =
+    "Hello, World! I am a long line of text that will wrap to the next line.";
+  function sayHello() {
+    console.log(greeting);
+  }
+  sayHello();
+  ```
+  ````
+</CodeGroup>
+
+<div id="diff">
+  ### Diff
+</div>
+
+在你的代码块中以可视化方式展示新增或删除的行。新增行会以绿色高亮，删除行会以红色高亮。
+
+要创建 diff，请在代码块中每行末尾添加这些特殊注释：
+
+* `// [!code ++]`：将该行标记为新增（绿色高亮）。
+* `// [!code --]`：将该行标记为删除（红色高亮）。
+
+对于多行连续的情况，可以在冒号后指定行数：
+
+* `// [!code ++:3]`：将当前行和接下来的两行标记为新增。
+* `// [!code --:5]`：将当前行和接下来的四行标记为删除。
+
+注释语法必须与你所使用的编程语言相匹配（例如，JavaScript 使用 `//`，Python 使用 `#`）。
+
+<CodeGroup>
+  ```js Diff example lines theme={null}
+  const greeting = "Hello, World!"; // [!code ++]
+  function sayHello() {
+    console.log("Hello, World!"); // [!code --]
+    console.log(greeting); // [!code ++]
+  }
+  sayHello();
+  ```
+
+  ````text Format theme={null}
+  ```js Diff example lines
+  const greeting = "Hello, World!"; // [!code ++]
+  function sayHello() {
+    console.log("Hello, World!"); // [!code --]
+    console.log(greeting); // [!code ++]
+  }
+  sayHello();
+  ```
+  ````
+</CodeGroup>
+
+<div id="codeblock-component">
+  ## CodeBlock 组件
+</div>
+
+在自定义 React 组件中使用 `<CodeBlock>` 组件，以编程方式渲染代码块，使其具有与 Markdown 代码块相同的样式和功能。
+
+<div id="props">
+  ### Props
+</div>
+
+<ResponseField name="language" type="string">
+  用于语法高亮的编程语言。
+</ResponseField>
+
+<ResponseField name="filename" type="string">
+  要在代码块标题中显示的文件名。
+</ResponseField>
+
+<ResponseField name="icon" type="string">
+  要在代码块标题中显示的 icon。可用选项请参见 [Icons](/zh/components/icons)。
+</ResponseField>
+
+<ResponseField name="lines" type="boolean">
+  是否显示行号。
+</ResponseField>
+
+<ResponseField name="wrap" type="boolean">
+  是否对代码块内容进行换行显示。
+</ResponseField>
+
+<ResponseField name="expandable" type="boolean">
+  代码块是否可展开。
+</ResponseField>
+
+<ResponseField name="highlight" type="string">
+  需要高亮的行。请提供数字数组的字符串形式。例如：
+  `"[1,3,4,5]"`。
+</ResponseField>
+
+<ResponseField name="focus" type="string">
+  需要聚焦的行。请提供数字数组的字符串形式。例如：
+  `"[1,3,4,5]"`。
+</ResponseField>
+
+<div id="example">
+  ### 示例
+</div>
+
+```jsx  theme={null}
+export const CustomCodeBlock = ({
+  filename,
+  icon,
+  language,
+  highlight,
+  children,
+}) => {
+  return (
+    <CodeBlock
+      filename={filename}
+      icon={icon}
+      language={language}
+      lines
+      highlight={highlight}
+    >
+      {children}
+    </CodeBlock>
+  );
+};
 ```
-
-3. 将 `title` 字段更新为 `"Hello World"`。
-
-```mdx index.mdx {2} theme={null}
----
-title: "Hello World"
-description: "这是文档的介绍"
----
-```
-
-<div id="preview-the-changes">
-  ### 预览更改
-</div>
-
-要在本地预览这些更改，请运行以下命令：
-
-```bash  theme={null}
-mint dev
-```
-
-你可以在 `localhost:3000` 查看预览。
-
-<Frame>
-  <img src="https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/mintlify-dev-light.png?fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=469e00f62b8ec5d64b78aed203819e8d" alt="Mintlify Dev" className="block dark:hidden" data-og-width="3024" width="3024" data-og-height="1518" height="1518" data-path="images/quickstart/mintlify-dev-light.png" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/mintlify-dev-light.png?w=280&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=626c9e9f708040cb0e1854f3bb9a84a6 280w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/mintlify-dev-light.png?w=560&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=77b2f24de1c2cf450211ca348212300c 560w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/mintlify-dev-light.png?w=840&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=8c4db5516b5e724c769b8ebf0f1b268d 840w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/mintlify-dev-light.png?w=1100&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=fe77b1fc62d5c3744ddbd3b7bb586629 1100w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/mintlify-dev-light.png?w=1650&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=7e91a5c3fa5ad6e4e972a36ba40dadd1 1650w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/mintlify-dev-light.png?w=2500&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=8d5bb8f0446788210c1819474b8db008 2500w" />
-
-  <img src="https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/mintlify-dev-dark.png?fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=14c30ad3671f2dc7663aefcdf04a78a9" alt="Mintlify Dev" className="hidden dark:block" data-og-width="3018" width="3018" data-og-height="1518" height="1518" data-path="images/quickstart/mintlify-dev-dark.png" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/mintlify-dev-dark.png?w=280&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=62357e55e3256ec972a2b8f2827278ad 280w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/mintlify-dev-dark.png?w=560&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=caccef9bafe020aa707a0a1b3a5656e1 560w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/mintlify-dev-dark.png?w=840&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=c7bf6b3f6fd30be1a64a33e484441ed4 840w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/mintlify-dev-dark.png?w=1100&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=3f43419a98a8c298bdbea2d04352dfda 1100w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/mintlify-dev-dark.png?w=1650&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=f7ddf0e7aeed666ca15c83fe18c8b61a 1650w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/mintlify-dev-dark.png?w=2500&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=e07593be35d411829cdcc8e5df78e09e 2500w" />
-</Frame>
-
-<div id="push-the-changes">
-  ### 推送更改
-</div>
-
-当你准备好发布更改时，将它们推送到你的代码仓库。
-
-Mintlify 会自动检测这些更改，构建你的文档，并将更新部署到你的站点。你可以在 GitHub 仓库的提交记录或在 [仪表盘](https://dashboard.mintlify.com) 中监控部署状态。
-
-部署完成后，你的最新更新将可以通过 `<your-project-name>.mintlify.app` 访问。
-
-<Card title="前往添加自定义域名" icon="arrow-down" horizontal href="#adding-a-custom-domain">
-  你也可以选择跳过网页编辑器的流程，直接前往添加自定义域名。
-</Card>
-
-<div id="web-editor-workflow">
-  ## Web editor 工作流
-</div>
-
-Web editor 工作流提供 WYSIWYG（所见即所得）界面，用于创建和编辑文档。该工作流最适合希望直接在网页浏览器中工作且无需额外本地开发工具的用户。
-
-<div id="access-the-web-editor">
-  ### 访问网页编辑器
-</div>
-
-1. 登录你的[控制台](https://dashboard.mintlify.com)。
-2. 在左侧边栏选择 **Editor**。
-
-<Info>
-  如果你还没有安装 GitHub App，打开网页编辑器时系统会提示你安装该应用。
-</Info>
-
-<Frame>
-  <img alt="Mintlify 网页编辑器的可视化编辑模式" src="https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/web-editor-light.png?fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=55ec9c2a242cf56c2b99c0c4ebdc1e20" className="block dark:hidden" data-og-width="3024" width="3024" data-og-height="1404" height="1404" data-path="images/quickstart/web-editor-light.png" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/web-editor-light.png?w=280&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=af9d42a6c1e419866beefadb00bb4e51 280w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/web-editor-light.png?w=560&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=64a8cf37238cb409c51c84d1288186eb 560w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/web-editor-light.png?w=840&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=e10c0d7bab08a20fd57118eb1dc5545d 840w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/web-editor-light.png?w=1100&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=cce783da931e49536cd6eeeb9001e4dc 1100w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/web-editor-light.png?w=1650&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=a3f263f08b80905e68056d20cc1e9f70 1650w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/web-editor-light.png?w=2500&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=c864ecf9f3d349e256c682812f9a85f0 2500w" />
-
-  <img alt="Mintlify 网页编辑器的可视化编辑模式" src="https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/web-editor-dark.png?fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=9cc658981729d4a754b002dc681ce49a" className="hidden dark:block" data-og-width="3011" width="3011" data-og-height="1402" height="1402" data-path="images/quickstart/web-editor-dark.png" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/web-editor-dark.png?w=280&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=f800da212280fdf0083042b476b9f6e6 280w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/web-editor-dark.png?w=560&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=e465e3a62aa47022d663488ffb8a7419 560w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/web-editor-dark.png?w=840&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=952ed4ab597e0ef686187ae252bdb8b1 840w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/web-editor-dark.png?w=1100&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=6218a5a8f1f859c28beb32a483febc69 1100w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/web-editor-dark.png?w=1650&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=c260516766e7f5a7f0c5737684cd7e74 1650w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/web-editor-dark.png?w=2500&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=cdbcbf887a6f01165d7c6ad2ea015763 2500w" />
-</Frame>
-
-<div id="edit-the-documentation">
-  ### 编辑文档
-</div>
-
-在 Web 编辑器中，你可以在侧边栏中浏览文档文件。我们来更新一下简介页面：
-
-在文件浏览器中找到并选择 `index.mdx`。
-
-然后在编辑器中，将标题字段更新为 "Hello World"。
-
-<Frame>
-  <img alt="在 Web 编辑器中编辑" src="https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/web-editor-editing-light.png?fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=a65976d79df7d1c2d6e230ef5b1e9912" className="block dark:hidden" data-og-width="3022" width="3022" data-og-height="1130" height="1130" data-path="images/quickstart/web-editor-editing-light.png" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/web-editor-editing-light.png?w=280&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=3e67e4e8658db49ae787d4661db1eb46 280w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/web-editor-editing-light.png?w=560&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=9a7f1989c3013f82865f45b653831f1f 560w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/web-editor-editing-light.png?w=840&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=f0f3e55c6694c7fd09e31151db68cdfc 840w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/web-editor-editing-light.png?w=1100&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=c34eefd1c72bea7a4d0f1728f4eb9e68 1100w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/web-editor-editing-light.png?w=1650&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=f4fefa97bd8dfcc4b02ec5803881e207 1650w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/web-editor-editing-light.png?w=2500&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=4ca29de1822c4541c1885c2f64c2b563 2500w" />
-
-  <img alt="在 Web 编辑器中编辑" src="https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/web-editor-editing-dark.png?fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=720832290f7fd70c6bbc2b9dcf1f9d66" className="hidden dark:block" data-og-width="3018" width="3018" data-og-height="1127" height="1127" data-path="images/quickstart/web-editor-editing-dark.png" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/web-editor-editing-dark.png?w=280&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=4306b6d20ea579b0e0a0090409b20118 280w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/web-editor-editing-dark.png?w=560&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=df3e8c4b2e4d8baf5a8d60271c6fb6fe 560w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/web-editor-editing-dark.png?w=840&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=80431291b792c7d9b62a091ab4eae0be 840w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/web-editor-editing-dark.png?w=1100&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=0bbee26abdb83c77f0644534395bc484 1100w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/web-editor-editing-dark.png?w=1650&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=026b397b851f093058eb87f938bf5afa 1650w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/web-editor-editing-dark.png?w=2500&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=64ee164c0433f2b086ce4f34b2603d59 2500w" />
-</Frame>
-
-<Tip>
-  编辑器提供了丰富的格式化工具和组件。在编辑器中输入 <kbd>/</kbd>
-  以打开命令菜单并使用这些工具。
-</Tip>
-
-<div id="publish-your-changes">
-  ### 发布你的更改
-</div>
-
-当你对编辑结果满意时，点击右上角的 **Publish** 按钮。你的更改会立即部署到文档站点。
-
-<Tip>
-  使用 branch，通过拉取请求（PR；亦称“合并请求”/Merge Request）在部署到线上站点之前进行预览和评审。
-</Tip>
-
-有关使用网页编辑器的更多信息，包括如何使用 branch 和拉取请求进行协作与预览更改，请参阅我们的[网页编辑器文档](/zh/editor)。
-
-<div id="adding-a-custom-domain">
-  ## 添加自定义域名
-</div>
-
-虽然你的 `<your-project-name>.mintlify.app` 子域名非常适合测试和开发环境，但大多数团队更倾向于在生产环境的文档中使用自定义域名。
-
-要添加自定义域名，请在控制台中前往 [Domain Setup](https://dashboard.mintlify.com/settings/deployment/custom-domain) 页面。
-
-<Frame>
-  <img src="https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/custom-domain-light.png?fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=aac0c0fa17f686ffdd99b3052b00987e" alt="自定义域名" className="block dark:hidden" data-og-width="3024" width="3024" data-og-height="1142" height="1142" data-path="images/quickstart/custom-domain-light.png" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/custom-domain-light.png?w=280&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=35566c610b9a7104695cf3c1d4d6bb86 280w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/custom-domain-light.png?w=560&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=583db431865eb430468c8bfdeb01330b 560w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/custom-domain-light.png?w=840&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=afd8d17ad542ec01d94d50b3ea32128f 840w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/custom-domain-light.png?w=1100&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=4eae6e98ed9fef062c92277dabf8b186 1100w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/custom-domain-light.png?w=1650&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=1fa5bbea13a96f90c2bce380e3503184 1650w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/custom-domain-light.png?w=2500&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=793e2c40aba3078492b2eb2320081fb1 2500w" />
-
-  <img src="https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/custom-domain-dark.png?fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=b233a8964e60cd635ca33b22db0c2584" alt="自定义域名" className="hidden dark:block" data-og-width="3018" width="3018" data-og-height="1140" height="1140" data-path="images/quickstart/custom-domain-dark.png" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/custom-domain-dark.png?w=280&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=eaad48b5f62b5e183becc31565ecacb0 280w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/custom-domain-dark.png?w=560&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=e0eacda33ed8dd929e48b0fee67c8b68 560w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/custom-domain-dark.png?w=840&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=e130fb02bc93220474e0e137ced30966 840w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/custom-domain-dark.png?w=1100&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=442aee44f1110303c9753f01fb487b97 1100w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/custom-domain-dark.png?w=1650&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=4d10f4f74b67ff1deceb5e6200823cfa 1650w, https://mintcdn.com/mintlify/f7fo9pnTEtzBD70_/images/quickstart/custom-domain-dark.png?w=2500&fit=max&auto=format&n=f7fo9pnTEtzBD70_&q=85&s=179b9771777c2eea4e3035d94e1bb9ab 2500w" />
-</Frame>
-
-输入你的域名（例如 `docs.yourcompany.com`），然后按照页面提示，在你的域名服务商处配置 DNS 设置。
-
-<Table>
-  | 记录类型  | 名称         | 值                    | TTL  |
-  | ----- | ---------- | -------------------- | ---- |
-  | CNAME | docs（或子域名） | cname.vercel-dns.com | 3600 |
-</Table>
-
-<Info>
-  DNS 变更的全球生效可能需要长达 48 小时，但通常会在更短时间内完成。
-</Info>
-
-<div id="next-steps">
-  ## 后续步骤
-</div>
-
-恭喜！你已成功使用 Mintlify 部署文档站点。以下是一些推荐的后续步骤，帮助你进一步完善文档：
-
-<Card title="配置全局设置" icon="settings" horizontal href="zh/organize/settings">
-  使用 `docs.json` 文件配置站点级样式、导航、集成等。
-</Card>
-
-<Card title="自定义你的主题" icon="paintbrush" horizontal href="zh/customize/themes">
-  了解如何自定义文档站点的颜色、字体和整体外观。
-</Card>
-
-<Card title="组织导航结构" icon="map" horizontal href="zh/organize/navigation">
-  通过直观的导航结构组织你的文档，帮助用户快速找到所需内容。
-</Card>
-
-<Card title="添加交互组件" icon="puzzle" horizontal href="/zh/components/accordions">
-  使用折叠面板、选项卡和代码示例等交互组件增强你的文档。
-</Card>
-
-<Card title="设置 API 参考" icon="code" horizontal href="/zh/api-playground/overview">
-  使用 OpenAPI 和 AsyncAPI 规范创建交互式 API 参考文档。
-</Card>
-
-<div id="troubleshooting">
-  ## 故障排查
-</div>
-
-如果你在配置过程中遇到问题，请查看以下常见解决方案：
-
-<AccordionGroup>
-  <Accordion title="本地预览无法运行">
-    请确保你已安装 Node.js v20.17.0 或更高版本，并且在包含 `docs.json` 文件的目录中运行 `mint dev` 命令。
-  </Accordion>
-
-  <Accordion title="更改未在线上站点生效">
-    部署可能需要几分钟时间。请检查你的 GitHub Actions（适用于基于代码的工作流）或 Mintlify 控制台中的部署日志，以确保没有构建错误。
-  </Accordion>
-
-  <Accordion title="自定义域名无法连接">
-    请确认你的 DNS 记录配置正确，并预留足够的 DNS 传播时间（最长可达 48 小时）。你可以使用 [DNSChecker](https://dnschecker.org) 等工具来验证你的 CNAME 记录。
-  </Accordion>
-</AccordionGroup>
 
 
 ---

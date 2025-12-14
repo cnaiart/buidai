@@ -1,0 +1,244 @@
+---
+title: "项目目录结构"
+description: "必定AI项目的目录结构说明"
+icon: 'folder-tree'
+---
+
+# 项目目录结构
+
+<div id="overview">
+  ## 概述
+</div>
+
+如何安装依赖并组织你的应用结构。
+
+<Info>
+  **版本信息**：截止于 v25.0.5 版本，项目目录结构如下所示。
+</Info>
+
+<div id="project-structure">
+  ## 项目结构
+</div>
+
+```bash theme={null}
+/
+├── assets/                    # 静态资源
+├── docker/                    # Docker 配置
+├── extensions/                # 扩展应用
+├── packages/                  # 包
+│   ├── @buildingai/           # (Core Shared Packages)
+│   │   ├── ai-sdk/            # AI SDK
+│   │   ├── base/              # 基础
+│   │   ├── cache/             # 缓存
+│   │   ├── config/            # 配置
+│   │   ├── constants/         # 常量
+│   │   ├── db/                # 数据库
+│   │   ├── decorators/        # 装饰器
+│   │   ├── di/                # 依赖注入
+│   │   ├── dict/              # 字典
+│   │   ├── dto/               # 数据传输对象
+│   │   ├── errors/            # 错误
+│   │   ├── eslint-config/     # ESLint 配置
+│   │   ├── extension-sdk/     # 扩展 SDK
+│   │   ├── logger/            # 日志
+│   │   ├── pipe/              # 管道
+│   │   ├── types/             # 类型
+│   │   ├── typescript-config/ # TypeScript 配置
+│   │   ├── upgrade/           # 升级
+│   │   ├── utils/             # 工具
+│   │   └── wechat-sdk/        # 微信 SDK
+│   │
+│   ├── api/                   # (Backend API Service)
+│   │   ├── dist/              # 编译后的文件
+│   │   ├── src/               # 源码
+│   │   │   ├── assets/        # 静态资源
+│   │   │   ├── common/        # 公共
+│   │   │   │   ├── constants/ # 常量
+│   │   │   │   ├── decorators/ # 装饰器
+│   │   │   │   ├── filters/   # 过滤器
+│   │   │   │   ├── guards/    # 保护
+│   │   │   │   ├── interceptors/ # 拦截器
+│   │   │   │   ├── interfaces/ # 接口
+│   │   │   │   ├── modules/   # 模块
+│   │   │   │   └── utils/     # 工具
+│   │   │   ├── core/          # 核心模块
+│   │   │   │   ├── database/  # 数据库
+│   │   │   │   ├── logger/    # 日志
+│   │   │   │   └── queue/     # 队列
+│   │   │   ├── modules/       # 功能模块
+│   │   │   │   ├── ai/        # AI
+│   │   │   │   ├── analyse/   # 分析
+│   │   │   │   ├── auth/      # 认证
+│   │   │   │   ├── channel/   # 渠道
+│   │   │   │   ├── config/    # 配置
+│   │   │   │   ├── decorate/  # 装饰
+│   │   │   │   ├── extension/ # 扩展
+│   │   │   │   ├── finance/   # 财务
+│   │   │   │   ├── health/    # 健康检查
+│   │   │   │   ├── membership/ # 会员
+│   │   │   │   ├── menu/      # 菜单
+│   │   │   │   ├── pay/       # 支付
+│   │   │   │   ├── permission/ # 权限
+│   │   │   │   ├── pm2/       # PM2
+│   │   │   │   ├── recharge/  # 充值
+│   │   │   │   ├── role/      # 角色
+│   │   │   │   ├── schedule/  # 定时任务
+│   │   │   │   ├── system/    # 系统
+│   │   │   │   ├── tag/       # 标签
+│   │   │   │   └── upload/    # 上传
+│   │   │   └── main.ts        # 应用入口
+│   │   ├── package.json       # 包配置
+│   │   └── tsconfig.json      # TypeScript 配置
+│   │
+│   ├── cli/                   # (Command Line Interface)
+│   │   ├── bin/               # 可执行文件
+│   │   ├── src/               # 源码
+│   │   │   ├── commands/      # 命令
+│   │   │   └── utils/         # 工具
+│   │   └── package.json       # 包配置
+│   │
+│   ├── core/                  # (Core Logic & Services)
+│   │   ├── dist/              # 编译后的文件
+│   │   ├── src/               # 源码
+│   │   │   ├── @nestjs/       # @nestjs
+│   │   │   ├── decorators/    # 装饰器
+│   │   │   ├── interfaces/    # 接口
+│   │   │   ├── modules/       # 模块
+│   │   │   │   ├── billing/   # 计费
+│   │   │   │   ├── extension/ # 扩展
+│   │   │   │   ├── queue/     # 队列
+│   │   │   │   ├── secret/    # 密钥
+│   │   │   │   └── upload/    # 上传
+│   │   │   └── services/      # 服务
+│   │   └── package.json       # 包配置
+│   │
+│   ├── desktop/               # (Desktop Application - Tauri)
+│   │   ├── src-tauri/         # Tauri 源码
+│   │   │   ├── capabilities/  # 能力
+│   │   │   ├── gen/           # 生成
+│   │   │   ├── icons/         # 图标
+│   │   │   ├── src/           # 源代码
+│   │   │   └── tauri.conf.json # Tauri 配置
+│   │   └── package.json       # 包配置
+│   │
+│   └── web/                   # (Web Frontend Packages)
+│       ├── @buildingai/        # 共享包
+│       │   ├── designer/      # 设计器
+│       │   ├── hooks/         # 钩子
+│       │   ├── http/          # HTTP
+│       │   ├── i18n-config/   # 国际化配置
+│       │   ├── layouts/       # 布局
+│       │   ├── nuxt/          # nuxt配置
+│       │   ├── service/       # API服务
+│       │   ├── stores/        # 全局状态
+│       │   ├── storybook/     # storybook配置
+│       │   ├── ui/            # 组件库
+│       │   └── web-config/    # web配置
+│       └── buildingai-ui/      # 主应用
+│           ├── .nuxt/         # 生成的 Nuxt 文件
+│           ├── .output/        # 构建输出
+│           ├── .storybook/     # Storybook 配置
+│           ├── app/            # 主应用源码
+│           │   ├── assets/     # 静态资源
+│           │   ├── components/ # 组件
+│           │   ├── i18n/       # 国际化
+│           │   ├── layouts/    # 布局
+│           │   ├── middleware/ # 路由中间件
+│           │   ├── pages/      # 基于文件的路由
+│           │   ├── stores/     # 状态管理
+│           │   ├── types/      # TypeScript 类型
+│           │   ├── utils/      # 工具函数
+│           │   ├── app.config.presets.ts # 应用预设配置
+│           │   ├── app.config.ts # 应用配置
+│           │   └── app.vue     # 应用根组件
+│           ├── modules/       # Nuxt 模块
+│           ├── public/        # 静态资源
+│           ├── server/         # 服务端 API/中间件
+│           ├── ai-rules.md     # AI 规则
+│           ├── eslint.config.mjs # ESLint 配置
+│           ├── nuxt.config.ts  # Nuxt Configuration
+│           ├── package.json    # 包配置
+│           ├── README.md       # 说明文档
+│           └── tsconfig.json   # TypeScript 配置
+├── public/                    # 静态资源
+├── scripts/                   # 脚本
+├── templates/                 # 模板
+├── .dockerignore              # Docker 忽略
+├── .editorconfig             # 编辑器配置
+├── .env                       # 环境变量
+├── .gitignore                 # Git 忽略
+├── docker-compose.yml         # Docker Compose
+├── ecosystem.config.js        # PM2 配置
+├── LICENSE                    # 许可证
+├── package.json               # 包配置
+├── pnpm-lock.yaml             # pnpm 锁
+├── pnpm-workspace.yaml        # pnpm 工作区
+├── README.md                  # 项目说明
+└── turbo.json                 # turbo 配置
+```
+
+<div id="core-packages">
+  ## 核心包说明
+</div>
+
+### @buildingai/ (Core Shared Packages)
+
+这是必定AI的核心共享包，包含了系统的基础功能和工具：
+
+- **ai-sdk**: AI功能的核心SDK，提供与AI模型交互的接口
+- **base**: 基础工具和通用功能
+- **cache**: 缓存管理，支持多种缓存策略
+- **config**: 配置管理，处理应用配置
+- **db**: 数据库抽象层，支持多种数据库
+- **decorators**: 装饰器集合，用于增强类和方法
+- **di**: 依赖注入容器，管理组件依赖
+- **dict**: 字典数据管理
+- **dto**: 数据传输对象，定义数据结构
+- **errors**: 错误处理和自定义错误类型
+- **eslint-config**: 共享的ESLint配置
+- **extension-sdk**: 扩展开发SDK
+- **logger**: 日志管理系统
+- **pipe**: 数据处理管道
+- **types**: TypeScript类型定义
+- **typescript-config**: 共享的TypeScript配置
+- **upgrade**: 系统升级管理
+- **utils**: 通用工具函数
+- **wechat-sdk**: 微信集成SDK
+
+### api/ (Backend API Service)
+
+后端API服务，基于NestJS构建：
+
+- **common**: 公共模块，包含常量、装饰器、过滤器等
+- **core**: 核心模块，包含数据库、日志、队列等
+- **modules**: 功能模块，包含所有业务逻辑
+
+### web/ (Web Frontend Packages)
+
+前端应用包，基于Nuxt.js构建：
+
+- **@buildingai**: 共享的前端包
+- **buildingai-ui**: 主应用界面
+
+<Info>
+  **开发提示**：项目采用monorepo架构，使用pnpm workspace管理多个包。每个包都有独立的package.json和tsconfig.json，便于独立开发和测试。
+</Info>
+
+<div id="configuration-files">
+  ## 配置文件说明
+</div>
+
+根目录下的主要配置文件：
+
+- **docker-compose.yml**: Docker容器编排配置
+- **ecosystem.config.js**: PM2进程管理配置
+- **pnpm-workspace.yaml**: pnpm工作区配置
+- **turbo.json**: Turbo构建系统配置
+- **.env**: 环境变量配置
+- **.gitignore**: Git忽略文件配置
+- **.dockerignore**: Docker忽略文件配置
+- **.editorconfig**: 编辑器配置
+
+<Card title="项目开发指南" icon="book" href="/develop/develop">
+  查看本地部署与开发指南
+</Card>
