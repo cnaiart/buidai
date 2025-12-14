@@ -55,7 +55,6 @@
           },
           {
             "group": "PC客户端",
-            "collapsed": true,
             "pages": [
               "develop/pcdevelop",
               "develop/build"
@@ -87,12 +86,12 @@
     "global": {
       "anchors": [
         {
-          "anchor": "官网",
+          "anchor": "必定官网",
           "href": "https://buidai.com/",
           "icon": "book-open-cover"
         },
         {
-          "anchor": "APIKey",
+          "anchor": "ApiKey",
           "href": "https://api.buidai.com",
           "icon": "newspaper"
         }
@@ -106,14 +105,14 @@
   "navbar": {
     "links": [
       {
-        "label": "支持",
-        "href": "mailto:hi@mintlify.com"
+        "label": "官网",
+        "href": "https://buidai.com/"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "仪表板",
-      "href": "https://dashboard.mintlify.com"
+      "label": "APIKey",
+      "href": "https://api.buidai.com"
     }
   },
   "contextual": {
