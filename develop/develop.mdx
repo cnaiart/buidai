@@ -1,0 +1,74 @@
+本地部署与开发
+本地部署项目以启动开发模式服务器
+
+本地部署
+上一篇 《前置准备》 我们已经完成了环境的准备，接下来我们来本地部署和启动 BuildingAI。
+
+拉取代码
+首先从代码仓库拉取最新代码：
+
+
+# Github
+git clone https://github.com/BidingCC/BuildingAI.git
+# or Gitee
+git clone https://gitee.com/BidingCC/BuildingAI.git
+拉取 Docker 镜像
+确保已安装 Docker，若未安装请先安装 Docker。
+
+
+cd BuildingAI
+docker compose up -d
+等待几分钟拉取镜像（取决于网络速度）。
+
+镜像拉取
+
+拉取完成之后，可以通过以下命令查看部署进度:
+
+日志日志
+
+
+# 单次查看
+docker logs buildingai-nodejs
+# 实时查看
+docker logs -f buildingai-nodejs
+# 查看最近100行
+docker logs --tail 100 buildingai-nodejs
+# 查看最近100行并实时跟踪
+docker logs --tail 100 -f buildingai-nodejs
+直到终端打印出如下内容则说明部署成功
+
+日志
+
+此时可以访问 http://localhost:4090/install 进行初始化安装
+
+安装界面
+
+初始化安装完成之后，为了便于开发，可以停止或者删除 Docker 中 buildingai 容器下的 buildingai-nodejs 容器，使用我们本地安装的Node.js来运行项目。
+
+停止
+
+停止容器
+
+
+docker stop buildingai-nodejs
+删除
+
+删除容器
+
+删除需要在容器停止之后才能删除
+
+
+docker rm buildingai-nodejs
+本地开发
+接下来我们可以使用本地的 Node.js 环境来运行项目进行开发。
+
+
+# 进入项目目录
+cd BuildingAI
+# 安装依赖
+pnpm install
+# 启动后端服务
+cd packages/api && pnpm dev
+# 启动前端服务（另起一个终端）
+cd packages/web && pnpm dev
+接下来可以通过本地地址 http://localhost:4091 访问前端界面

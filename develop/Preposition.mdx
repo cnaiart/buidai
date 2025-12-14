@@ -1,0 +1,189 @@
+---
+title: "开发环境准备"
+description: "配置必定AI项目开发所需的环境依赖"
+icon: 'settings'
+---
+
+# 开发环境准备
+
+> 为了更好的开发体验，我们提供了一些工具配置、项目说明，以便于您更好的开发
+
+完成本指南后，您将拥有一个配置完善的开发环境，可以开始对必定AI项目进行开发和调试。
+
+<div id="prerequisites">
+  ## 前置准备
+</div>
+
+本地运行必定AI之前，你首先需要安装一些开发环境依赖项：
+
+- Docker
+- NodeJS
+- pnpm
+
+<Info>
+  **提示**：如果您已经安装了这些依赖项，可以跳过相应的安装步骤。
+</Info>
+
+<div id="environment-setup">
+  ## 环境准备
+</div>
+
+<div id="docker-installation">
+  ### Docker 安装
+</div>
+
+<div id="docker-macos">
+  #### MacOS
+</div>
+
+<Card title="Apple Silicon 芯片" icon="cpu" href="https://docs.docker.com/docker-for-mac/apple-silicon/">
+  Download for Mac – Apple Silicon
+</Card>
+
+<Info>
+  如果是Intel芯片的Mac则点击下面的链接下载
+</Info>
+
+<Card title="Intel 芯片" icon="cpu" href="https://docs.docker.com/docker-for-mac/intel/">
+  Download for Mac – Intel Chip
+</Card>
+
+<div id="docker-windows">
+  #### Windows
+</div>
+
+<Card title="Windows AMD64" icon="monitor" href="https://docs.docker.com/docker-for-windows/install/">
+  Download for Windows – AMD64
+</Card>
+
+<Card title="Windows ARM64" icon="monitor" href="https://docs.docker.com/docker-for-windows/install/">
+  Download for Windows – ARM64
+</Card>
+
+下载完成之后打开安装包，按照安装指引进行安装。安装完成之后，可以打开终端，输入下列命令并回车运行：
+
+```bash theme={null}
+docker --version
+# 安装成功则会打印如下类似版本号信息
+# Docker version 2x.x.x, build xxxxxxx
+```
+
+<div id="nodejs-installation">
+  ### NodeJS 安装
+</div>
+
+<div id="nodejs-nvm">
+  #### 通过nvm安装和管理（推荐）
+</div>
+
+<Info>
+  **重要**：使用nvm安装和管理Node.js之前，请先卸载掉所有已安装的Node.js！
+</Info>
+
+<div id="nvm-macos">
+  ##### MacOS
+</div>
+
+```bash theme={null}
+# 下载并安装 nvm：
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+# 代替重启 shell
+\. "$HOME/.nvm/nvm.sh"
+# 下载并安装 Node.js：
+nvm install 22
+# 验证 Node.js 版本：
+node -v # Should print "v22.xx.x".
+# 验证 npm 版本：
+npm -v # Should print "11.x.x".
+```
+
+<div id="nvm-windows">
+  ##### Windows
+</div>
+
+<Card title="nvm-windows 下载地址" icon="download" href="https://github.com/coreybutler/nvm-windows/releases">
+  下载地址
+</Card>
+
+下载完成之后打开安装包，按照安装指引进行安装。安装时，切勿修改默认安装路径，否则可能会导致nvm无法正常工作。
+
+安装完成之后，可以打开终端，输入下列命令并回车运行：
+
+```bash theme={null}
+nvm --version
+# 安装成功则会打印如下类似版本号信息
+# 1.2.x
+# 下载并安装 Node.js：
+nvm install 22
+# 验证 Node.js 版本：
+node -v # Should print "v22.xx.x".
+# 验证 npm 版本：
+npm -v # Should print "11.x.x".
+```
+
+<div id="nodejs-official">
+  #### 通过官方安装包安装（v22.21.1）
+</div>
+
+<div id="official-macos">
+  ##### MacOS
+</div>
+
+<Card title="Node.js for MacOS" icon="download" href="https://nodejs.org/dist/v22.21.1/node-v22.21.1.pkg">
+  Download for Mac
+</Card>
+
+<div id="official-windows">
+  ##### Windows
+</div>
+
+<Card title="Node.js for Windows x64" icon="download" href="https://nodejs.org/dist/v22.21.1/node-v22.21.1-x64.msi">
+  Download for Windows – x64
+</Card>
+
+<Card title="Node.js for Windows x86" icon="download" href="https://nodejs.org/dist/v22.21.1/node-v22.21.1-x86.msi">
+  Download for Windows – x86
+</Card>
+
+<Card title="Node.js for Windows ARM64" icon="download" href="https://nodejs.org/dist/v22.21.1/node-v22.21.1-arm64.msi">
+  Download for Windows – ARM64
+</Card>
+
+下载完成后，打开安装包，按照安装指引进行安装。安装完成之后，可以打开终端，输入下列命令并回车运行：
+
+```bash theme={null}
+node -v # Should print "v22.21.1".
+npm -v # Should print "11.x.x".
+```
+
+<Info>
+  更多安装方式可以通过 [Node.js官网](https://nodejs.org/) 查看
+</Info>
+
+<div id="pnpm-installation">
+  ### pnpm 安装
+</div>
+
+安装完 Node.js 之后，可以通过 npm 安装 pnpm：
+
+```bash theme={null}
+npm install -g pnpm
+```
+
+验证安装：
+
+```bash theme={null}
+pnpm --version
+```
+
+如果输出版本号，则说明安装成功。
+
+<div id="completion">
+  ## 完成配置
+</div>
+
+<Info>
+  🎉 恭喜你，到此为止所有环境已经准备完毕！
+</Info>
+
+现在您可以开始对必定AI项目进行开发了。

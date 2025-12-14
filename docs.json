@@ -1,12 +1,12 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "必定AI",
   "locale": "zh-CN",
   "colors": {
-    "primary": "#0F172A",
+    "primary": "#2563EB",
     "light": "#3B82F6",
-    "dark": "#1E40AF"
+    "dark": "#1D4ED8"
   },
   "favicon": "/favicon.svg",
   "navigation": {
@@ -39,13 +39,18 @@
               "essentials/images",
               "essentials/reusable-snippets"
             ]
-          },
+          }
+        ]
+      },
+      {
+        "tab": "开发文档",
+        "groups": [
           {
-            "group": "AI 工具",
+            "group": "开发指南",
             "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "develop/Preposition",
+              "develop/develop",
+              "develop/windsurf"
             ]
           }
         ]
@@ -74,13 +79,13 @@
     "global": {
       "anchors": [
         {
-          "anchor": "文档",
-          "href": "https://mintlify.com/docs",
+          "anchor": "官网",
+          "href": "https://buidai.com/",
           "icon": "book-open-cover"
         },
         {
-          "anchor": "博客",
-          "href": "https://mintlify.com/blog",
+          "anchor": "APIKey",
+          "href": "https://api.buidai.com",
           "icon": "newspaper"
         }
       ]
