@@ -50,14 +50,15 @@
               "develop/Preposition",
               "develop/develop",
               "develop/directory",
-              "develop/config"
-            ]
-          },
-          {
-            "group": "PC客户端",
-            "pages": [
-              "develop/pcdevelop",
-              "develop/build"
+              "develop/config",
+              {
+                "group": "PC客户端",
+                "expanded": false,
+                "pages": [
+                  "develop/pcdevelop",
+                  "develop/build"
+                ]
+              }
             ]
           }
         ]
