@@ -1,10 +1,11 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "必定AI",
+  "name": "必定AI,新一代AI一站式创意生产力平台",
   "metadata": {
     "keywords": [
       "BuidAI",
+      "必定AI",
       "AI Agent",
       "开源智能体平台",
       "企业级AI",
