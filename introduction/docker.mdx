@@ -4,66 +4,79 @@ description: "通过Docker一键部署必定AI"
 icon: 'docker'
 ---
 
-# Docker方式安装
-
-通过Docker一键部署必定AI
+通过 Docker 方式可以快速一键部署必定AI。
 
 ## 环境准备
 
-### 最低配置要求
+<AccordionGroup>
+  <Accordion title="最低配置要求" icon="server">
+    *   **CPU**：≥2核（建议4核）
+    *   **内存**：≥4GB RAM（建议8GB）
+    *   **存储**：≥5GB 空闲空间
+  </Accordion>
+  <Accordion title="软件依赖" icon="cube">
+    在使用 Docker 部署必定AI之前，请确保您的系统已经安装了以下软件：
+    *   Docker (版本 20.10.0 或更高)
+    *   Docker Compose (正常情况下已随Docker一起安装)
 
-- CPU：≥2核（建议4核）
-- 内存：≥4GB RAM（建议8GB）
-- 存储：≥5GB 空闲空间
-
-在使用Docker部署必定AI之前，请确保您的系统已经安装了以下软件：
-
-- Docker (版本 20.10.0 或更高)
-- Docker Compose (正常情况下已随Docker一起安装)
-
-您可以通过以下命令检查它们是否已正确安装：
-
-```bash
-# 检查 Docker 版本
-docker --version
-# 检查 Docker Compose 版本
-docker compose version
-```
+    您可以通过以下命令检查它们是否已正确安装：
+    ```bash
+    # 检查 Docker 版本
+    docker --version
+    # 检查 Docker Compose 版本
+    docker compose version
+    ```
+  </Accordion>
+</AccordionGroup>
 
 ## 部署步骤
 
-### 1. 获取代码
+<Steps>
+  <Step title="获取代码">
+    <CodeGroup>
+      ```bash Github
+      git clone https://github.com/BidingCC/BuildingAI.git ./buildingai
+      ```
+      ```bash Gitee
+      git clone https://gitee.com/BidingCC/BuildingAI.git ./buildingai
+      ```
+    </CodeGroup>
+  </Step>
 
-```bash
-# Github
-git clone https://github.com/BidingCC/BuildingAI.git ./buildingai
-# Gitee
-git clone https://gitee.com/BidingCC/BuildingAI.git ./buildingai
-```
+  <Step title="配置环境变量">
+    在运行 Docker 命令前，首先需要配置环境变量。请确保项目根目录下存在 `.env` 文件。您可以从示例文件复制并修改：
 
-### 2. 配置环境变量
+    ```bash
+    # 进入项目根目录
+    cd buildingai
+    # 复制环境变量配置文件
+    cp .env.example .env
+    ```
 
-在运行 Docker 命令前，首先需要配置环境变量。请确保项目根目录下存在 .env 文件。您可以从示例文件复制并修改：
+    <Tip>
+    根据您的需求编辑 `.env` 文件。
+    *   **本地部署**：通常无需修改，直接使用默认配置即可。
+    *   **线上部署**：请配置前端接口域名 `APP_DOMAIN`。
+    </Tip>
+  </Step>
 
-```bash
-# 进入项目根目录
-cd buildingai
-# 复制环境变量配置文件
-cp .env.example .env
-```
+  <Step title="启动服务">
+    完成环境变量配置后，在项目根目录执行以下命令启动所有服务：
 
-然后根据您的需求编辑 .env 文件。如果本地部署且无特殊需求，则无需修改，如果需要部署到线上环境，则需要配置前端接口域名 APP_DOMAIN。
+    ```bash
+    docker compose up -d
+    ```
 
-### 3. 启动服务
+    <Note>
+    拉取完所有镜像之后，需要 **5~10分钟** 等待项目构建完成（取决于设备性能和网络环境）。具体进度可以查看 `nodejs` 服务日志。
+    </Note>
+  </Step>
 
-完成环境变量配置后，在项目根目录执行以下命令启动所有服务：
+  <Step title="访问服务">
+    当日志出现 `➜ Local: http://localhost:4090` 等字样，则表示项目构建完成。
 
-```bash
-docker compose up -d
-```
-
-拉取完所有镜像之后，需要5~10分钟等待项目构建完成（取决于设备性能和网络环境），具体进度可以查看nodejs服务日志。
-
-当日志出现 `➜ Local: http://localhost:4090` 等字样，则表示项目构建完成。
-
-本地部署访问地址：http://localhost:4090/install 进行站点初始化配置
+    <Card title="初始化配置" icon="rocket" href="http://localhost:4090/install">
+      访问地址：http://localhost:4090/install 进行站点初始化配置
+    </Card>
+  </Step>
+</Steps>
