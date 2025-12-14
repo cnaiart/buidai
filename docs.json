@@ -9,95 +9,98 @@
   },
   "favicon": "/favicon.svg",
   "navigation": {
-    "tabs": [
+    "languages": [
       {
-        "tab": "指南",
-        "groups": [
+        "language": "zh",
+        "tabs": [
           {
-            "group": "入门指南",
-            "pages": [
-              "index",
-              "quickstart",
-              "development"
-            ]
-          },
-          {
-            "group": "安装与体验",
-            "pages": [
-              "introduction/docker",
-              "introduction/bt",
-              "essentials/settings",
-              "essentials/navigation"
-            ]
-          },
-          {
-            "group": "编写内容",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "开发文档",
-        "groups": [
-          {
-            "group": "开发指南",
-            "pages": [
-              "develop/Preposition",
-              "develop/develop",
-              "develop/directory",
-              "develop/config",
+            "tab": "指南",
+            "groups": [
               {
-                "group": "PC客户端",
-                "expanded": false,
+                "group": "入门指南",
                 "pages": [
-                  "develop/pcdevelop",
-                  "develop/build"
+                  "index",
+                  "quickstart",
+                  "development"
+                ]
+              },
+              {
+                "group": "安装与体验",
+                "pages": [
+                  "introduction/docker",
+                  "introduction/bt",
+                  "essentials/settings",
+                  "essentials/navigation"
+                ]
+              },
+              {
+                "group": "编写内容",
+                "pages": [
+                  "essentials/markdown",
+                  "essentials/code",
+                  "essentials/images",
+                  "essentials/reusable-snippets"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "开发文档",
+            "groups": [
+              {
+                "group": "开发指南",
+                "pages": [
+                  "develop/Preposition",
+                  "develop/develop",
+                  "develop/directory",
+                  "develop/config",
+                  {
+                    "group": "PC客户端",
+                    "expanded": false,
+                    "pages": [
+                      "develop/pcdevelop",
+                      "develop/build"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "API 参考",
+            "groups": [
+              {
+                "group": "API 文档",
+                "pages": [
+                  "api-reference/introduction"
+                ]
+              },
+              {
+                "group": "端点示例",
+                "pages": [
+                  "api-reference/endpoint/get",
+                  "api-reference/endpoint/create",
+                  "api-reference/endpoint/delete",
+                  "api-reference/endpoint/webhook"
                 ]
               }
             ]
           }
-        ]
-      },
-      {
-        "tab": "API 参考",
-        "groups": [
+        ],
+        "anchors": [
           {
-            "group": "API 文档",
-            "pages": [
-              "api-reference/introduction"
-            ]
+            "anchor": "必定官网",
+            "href": "https://buidai.com/",
+            "icon": "book-open-cover"
           },
           {
-            "group": "端点示例",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
-            ]
+            "anchor": "ApiKey",
+            "href": "https://api.buidai.com",
+            "icon": "newspaper"
           }
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "必定官网",
-          "href": "https://buidai.com/",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "ApiKey",
-          "href": "https://api.buidai.com",
-          "icon": "newspaper"
-        }
-      ]
-    }
+    ]
   },
   "logo": {
     "light": "/logo/light.svg",
