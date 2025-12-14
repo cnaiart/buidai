@@ -1,0 +1,245 @@
+---
+title: "PC客户端开发文档"
+description: "使用Tauri构建必定AI桌面应用的开发环境配置"
+icon: 'desktop'
+---
+
+# PC客户端开发文档
+
+<div id="overview">
+  ## 概述
+</div>
+
+为了开始使用 Tauri 构建必定AI桌面应用，你首先需要安装一些依赖项。
+
+<div id="system-dependencies">
+  ## 系统依赖项
+</div>
+
+<div id="rust-installation">
+  ### Rust 安装
+</div>
+
+Tauri 使用 Rust 构建并需要它进行开发。使用以下方法之一安装 Rust。你可以在 https://www.rust-lang.org/zh-CN/tools/install 查看更多安装方法。
+
+<div id="rust-linux-macos">
+  #### Linux 和 macOS
+</div>
+
+使用 rustup 安装：
+
+```bash theme={null}
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+
+<Info>
+  **提示**：我们已经审核了这个 bash 脚本，它做了它所说的应该做的事情。尽管如此，在盲目地使用脚本之前，先看一看总是明智的。
+</Info>
+
+<div id="rust-windows">
+  #### Windows
+</div>
+
+前往 https://www.rust-lang.org/zh-CN/tools/install 下载 rustup。
+
+或者，你可以在 PowerShell 中使用 winget 安装 rustup：
+
+```bash theme={null}
+winget install --id Rustlang.Rustup
+```
+
+<Info>
+  **警告**：为了完全支持 Tauri 和 trunk 等工具，请确保在安装程序对话框中的 default host triple 选择 MSVC Rust 工具链。根据你的系统，它应该是 x86_64-pc-windows-msvc、i686-pc-windows-msvc 或 aarch64-pc-windows-msvc。
+</Info>
+
+如果你已安装 Rust，你可以通过运行以下命令来确保安装正确的工具链：
+
+```bash theme={null}
+rustup default stable-msvc
+```
+
+请务必重新启动终端（在某些情况下重新启动系统）以使更改生效。
+
+<div id="platform-specific-setup">
+  ## 平台特定设置
+</div>
+
+<div id="linux-setup">
+  ### Linux 设置
+</div>
+
+Tauri 在 Linux 上进行开发需要各种系统依赖项。这些可能会有所不同，具体取决于你的发行版，但我们在下面提供了一些流行的发行版来帮助你进行设置。
+
+<div id="debian-setup">
+  #### Debian
+</div>
+
+```bash theme={null}
+sudo apt update
+sudo apt install libwebkit2gtk-4.1-dev \
+  build-essential \
+  curl \
+  wget \
+  file \
+  libxdo-dev \
+  libssl-dev \
+  libayatana-appindicator3-dev \
+  librsvg2-dev
+```
+
+<div id="arch-setup">
+  #### Arch
+</div>
+
+```bash theme={null}
+sudo pacman -Syu
+sudo pacman -S --needed \
+  webkit2gtk-4.1 \
+  base-devel \
+  curl \
+  wget \
+  file \
+  openssl \
+  appmenu-gtk-module \
+  libappindicator-gtk3 \
+  librsvg \
+  xdotool
+```
+
+<div id="fedora-setup">
+  #### Fedora
+</div>
+
+```bash theme={null}
+sudo dnf check-update
+sudo dnf install webkit2gtk4.1-devel \
+  openssl-devel \
+  curl \
+  wget \
+  file \
+  libappindicator-gtk3-devel \
+  librsvg2-devel \
+  libxdo-devel
+sudo dnf group install "c-development"
+```
+
+<div id="macos-setup">
+  ### macOS 设置
+</div>
+
+Tauri 使用 Xcode 以及各种 macOS 和 iOS 开发依赖项。
+
+从以下位置之一下载并安装 Xcode：
+
+<Card title="Mac App Store" icon="apple" href="https://apps.apple.com/us/app/xcode/id497799835?mt=12">
+  从 Mac App Store 下载 Xcode
+</Card>
+
+<Card title="Apple Developer" icon="apple" href="https://developer.apple.com/xcode/">
+  从 Apple Developer 网站下载 Xcode
+</Card>
+
+<Info>
+  **重要**：请务必在安装后启动 Xcode，以使它完成设置。
+</Info>
+
+<div id="windows-setup">
+  ### Windows 设置
+</div>
+
+Tauri 使用 Microsoft C++ 生成工具进行开发以及 Microsoft Edge WebView2。这两者都是在 Windows 上进行开发所必需的。
+
+<div id="windows-cpp-tools">
+  #### Microsoft C++ 生成工具
+</div>
+
+下载 Microsoft C++ 生成工具安装程序并打开它以开始安装。
+
+在安装过程中，选中"使用 C++ 的桌面开发"选项。
+
+<Card title="Visual Studio 生成工具" icon="windows" href="https://visualstudio.microsoft.com/zh-hans/visual-cpp-build-tools/">
+  下载 Microsoft C++ 生成工具
+</Card>
+
+<div id="windows-webview2">
+  #### WebView2
+</div>
+
+<Info>
+  **提示**：WebView 2 已安装在 Windows 10（从版本 1803 开始）和更高版本的 Windows 上。如果你正在这些版本之一上进行开发，则可以跳过此步骤。
+</Info>
+
+Tauri 使用 Microsoft Edge WebView2 在 Windows 上呈现内容。
+
+<Card title="WebView2 运行时" icon="browser" href="https://developer.microsoft.com/en-us/microsoft-edge/webview2/">
+  下载 WebView2 运行时
+</Card>
+
+<div id="nodejs-setup">
+  ### Node.js 设置
+</div>
+
+<Info>
+  **提示**：仅当你打算使用 JavaScript 前端框架时需要安装 Node.js
+</Info>
+
+访问 Node.js 网站，下载并安装长期支持版本（LTS）。
+
+<Card title="Node.js 官网" icon="node" href="https://nodejs.org/">
+  下载 Node.js LTS 版本
+</Card>
+
+运行以下命令以检查 Node 是否成功安装：
+
+```bash theme={null}
+node -v
+# v20.10.0
+npm -v
+# 10.2.3
+```
+
+<Info>
+  **重要**：重新启动终端以确保它能够识别新安装的内容。在某些情况下，您可能需要重新启动计算机。
+</Info>
+
+虽然 npm 是 Node.js 的默认包管理器，但你也可以使用其他包管理器，比如 pnpm 或 yarn。如果你想启用这些包管理器，可以在终端中运行 `corepack enable`。这一步是可选的，只有在您想使用 npm 以外的包管理器时才需要。
+
+<div id="development-workflow">
+  ## 开发工作流程
+</div>
+
+现在，你已经安装了所有前置要求，你可以尝试本地运行或打包桌面端应用。
+
+<div id="local-development">
+  ### 本地运行
+</div>
+
+```bash theme={null}
+pnpm dev:desktop
+```
+
+<div id="building-app">
+  ### 打包应用
+</div>
+
+<Info>
+  **注意**：当前设备只能打包本设备平台的安装包，例如在 macOS 上只能打包 .dmg 或 .zip 文件，在 Windows 上只能打包 .exe 文件。
+</Info>
+
+```bash theme={null}
+pnpm build:desktop
+```
+
+<Card title="打包文档" icon="book" href="/pc-client/build-docs">
+  查看详细的打包文档
+</Card>
+
+<div id="troubleshooting">
+  ## 故障排除
+</div>
+
+如果你在安装过程中遇到任何问题，请务必查看故障诊断指南或联系 Tauri Discord 以寻求帮助。
+
+<Card title="Tauri 故障排除指南" icon="help-circle" href="https://tauri.app/v1/guides/">
+  查看故障排除指南
+</Card>
