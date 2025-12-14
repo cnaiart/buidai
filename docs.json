@@ -29,17 +29,15 @@
                 "pages": [
                   "introduction/docker",
                   "introduction/bt",
-                  "essentials/manual",
-                  "essentials/navigation"
+                  "introduction/demo" 
                 ]
               },
               {
-                "group": "编写内容",
+                "group": "政策",
                 "pages": [
-                  "essentials/markdown",
-                  "essentials/code",
-                  "essentials/images",
-                  "essentials/reusable-snippets"
+                  "policy/license",
+                  "policy/service",
+                  "policy/privacy"  
                 ]
               }
             ]
