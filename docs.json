@@ -21,7 +21,7 @@
                 "pages": [
                   "index",
                   "quickstart",
-                  "development"
+                  "community"
                 ]
               },
               {
@@ -85,6 +85,17 @@
                 ]
               }
             ]
+          },
+          {
+            "tab": "更新日志",
+            "groups": [
+              {
+                "group": "更新记录",
+                "pages": [
+                  "changelog"
+                ]
+              }
+            ]
           }
         ],
         "anchors": [
@@ -109,13 +120,13 @@
   "navbar": {
     "links": [
       {
-        "label": "官网",
+        "label": "必定官网",
         "href": "https://buidai.com/"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "APIKey",
+      "label": "ApiKey",
       "href": "https://api.buidai.com"
     }
   },
