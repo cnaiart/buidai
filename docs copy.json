@@ -8,31 +8,12 @@
     }
   },
   "colors": {
-    "primary": "#10B981",
-    "light": "#34D399",
-    "dark": "#059669"
+    "primary": "#2563EB",
+    "light": "#3B82F6",
+    "dark": "#1D4ED8"
   },
   "favicon": "/favicon.svg",
   "navigation": {
-    "global": {
-      "anchors": [
-        {
-          "anchor": "网站",
-          "icon": "house",
-          "href": "https://buidai.com/"
-        },
-        {
-          "anchor": "论坛",
-          "icon": "comments",
-          "href": "https://forum.buidai.com/"
-        },
-        {
-          "anchor": "博客",
-          "icon": "pencil",
-          "href": "https://blog.buidai.com/"
-        }
-      ]
-    },
     "languages": [
       {
         "language": "zh",
@@ -51,25 +32,18 @@
               {
                 "group": "安装与体验",
                 "pages": [
-                  "introduction/bt",
-                  "introduction/demo",
-                  "introduction/design",
                   "introduction/docker",
-                  "introduction/manual"
-                ]
-              },
-              {
-                "group": "官方素材",
-                "pages": [
-                  "introduction/design"
+                  "introduction/bt",
+                  "introduction/manual",
+                  "introduction/demo" 
                 ]
               },
               {
                 "group": "政策",
                 "pages": [
                   "policy/license",
-                  "policy/privacy",
-                  "policy/service"
+                  "policy/service",
+                  "policy/privacy"  
                 ]
               }
             ]
@@ -81,11 +55,9 @@
                 "group": "开发指南",
                 "pages": [
                   "develop/Preposition",
-                  "develop/build",
-                  "develop/config",
                   "develop/develop",
                   "develop/directory",
-                  "develop/pcdevelop",
+                  "develop/config",
                   {
                     "group": "PC客户端",
                     "expanded": false,
@@ -99,8 +71,8 @@
               {
                 "group": "常见问题",
                 "pages": [
-                  "fqa/backup",
-                  "fqa/fqa"
+                  "fqa/fqa",
+                  "fqa/backup"
                 ]
               }
             ]
@@ -128,9 +100,9 @@
               {
                 "group": "端点示例",
                 "pages": [
+                  "api-reference/endpoint/get",
                   "api-reference/endpoint/create",
                   "api-reference/endpoint/delete",
-                  "api-reference/endpoint/get",
                   "api-reference/endpoint/webhook"
                 ]
               }
