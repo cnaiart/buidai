@@ -1,37 +1,66 @@
 ---
-title: "功能概览"
-description: "BuildingAI 后台管理功能完整指南 - 从数据看板到系统设置的全面介绍"
+title: "BuildingAI 后台管理功能完整指南"
+description: "从数据看板到系统设置的全面介绍 - BuildingAI 后台管理功能完整指南"
 icon: 'grid-2'
 ---
 
-使用具有后台管理员权限的账号登录 BuildingAI 后，点击左下方「工作台」即可进入后台管理面板。
+> 💡 **快速开始**  
+> 使用具有后台管理员权限的账号登录 BuildingAI 后，点击左下方「工作台」即可进入后台管理面板。
 
 <Warning>
 如果没有看到「工作台」按钮，请向站点管理者确认当前登录账号是否具有管理员权限。
 </Warning>
 
-![数据看板](https://www.buildingai.cc/summary/image%20(0).png)
+![后台管理面板](https://www.buildingai.cc/summary/image%20(0).png)
 
-## 数据看板
+## 📋 目录
 
-用于查看站点数据，如用户统计、订单统计、对话统计、token消耗等。
+- [数据看板](#数据看板)
+- [模型管理](#模型管理)
+- [智能体](#智能体)
+- [知识库](#知识库)
+- [MCP工具](#mcp工具)
+- [密钥管理](#密钥管理)
+- [应用管理](#应用管理)
+- [对话管理](#对话管理)
+- [用户管理](#用户管理)
+- [订阅会员](#订阅会员)
+- [订单管理](#订单管理)
+- [DIY中心](#diy中心)
 
-![数据看板](https://www.buildingai.cc/summary/image%20(1).png)
+---
 
-## 模型管理
+## 📊 数据看板
 
-用于管理和创建大模型，BuildingAI已预置部分主流AI大模型厂商及其AI模型，站长只需要输入对应大模型的密钥即可启用。用户可在前台的AI功能中选择并使用已开启的大模型。
+数据看板是 BuildingAI 后台的核心概览页面，用于实时监控站点运营数据。
+
+### 功能特点
+- **用户统计**: 查看注册用户数、活跃用户数等关键指标
+- **订单统计**: 监控充值订单、订阅订单等交易数据
+- **对话统计**: 分析AI对话使用情况和频率
+- **Token消耗**: 跟踪AI模型的使用成本和消耗情况
+
+![数据看板详情](https://www.buildingai.cc/summary/image%20(1).png)
+
+---
+
+## 🤖 模型管理
+
+模型管理是 BuildingAI 的核心功能之一，允许站长管理和配置各种AI大模型服务。
+
+### 功能概述
+BuildingAI 已预置主流AI大模型厂商及其AI模型，站长只需输入对应大模型的密钥即可启用。用户可在前台的AI功能中选择并使用已开启的大模型。
 
 <Tabs>
   <Tab title="前台预览">
-    ![数据看板](https://www.buildingai.cc/summary/image%20(2).png)
+    ![模型前台展示](https://www.buildingai.cc/summary/image%20(2).png)
   </Tab>
-  <Tab title="后台预览">
-    ![数据看板](https://www.buildingai.cc/summary/image%20(3).png)
+  <Tab title="后台管理">
+    ![模型后台管理](https://www.buildingai.cc/summary/image%20(3).png)
   </Tab>
 </Tabs>
 
-### 内置模型
+### 🛠️ 内置模型配置
 
 <Steps>
   <Step title="添加密钥">
@@ -39,14 +68,14 @@ icon: 'grid-2'
   </Step>
 
   <Step title="配置模型">
-    添加密钥完成之后，点击对应的模型供应商，进入编辑。
+    添加密钥完成之后，点击对应的模型供应商，进入编辑配置。
 
     <CardGroup cols={2}>
       <Card>
-        ![数据看板](https://www.buildingai.cc/summary/image%20(4).png)
+        ![模型供应商列表](https://www.buildingai.cc/summary/image%20(4).png)
       </Card>
       <Card>
-        ![数据看板](https://www.buildingai.cc/summary/image%20(5).png)
+        ![模型配置界面](https://www.buildingai.cc/summary/image%20(5).png)
       </Card>
     </CardGroup>
   </Step>
@@ -54,19 +83,21 @@ icon: 'grid-2'
   <Step title="开启使用">
     API配置完成后，开启状态即可使用。
     
-    ![数据看板](https://www.buildingai.cc/summary/image%20(6).png)
+    ![模型启用状态](https://www.buildingai.cc/summary/image%20(6).png)
   </Step>
 </Steps>
 
 <Info>
-**模型类型说明**:
-- **LLM类型**的模型会在对话中显示
-- **TEXT EMBEDDING类型**的模型在知识库选择向量模型时显示
+**🔍 模型类型说明**:
+- **LLM类型**: 用于文本对话的模型，会在对话功能中显示
+- **TEXT EMBEDDING类型**: 用于向量化的模型，在知识库选择向量模型时显示
 
-![数据看板](https://www.buildingai.cc/summary/image%20(7).png)
+![模型类型说明](https://www.buildingai.cc/summary/image%20(7).png)
 </Info>
 
-### 自定义模型
+### 🎨 自定义模型
+
+如果内置模型无法满足需求，可以创建自定义模型供应商。
 
 <Steps>
   <Step title="准备工作">
@@ -82,10 +113,10 @@ icon: 'grid-2'
 
     <CardGroup cols={2}>
       <Card>
-        ![数据看板](https://www.buildingai.cc/summary/image%20(8).png)
+        ![自定义供应商界面](https://www.buildingai.cc/summary/image%20(8).png)
       </Card>
       <Card>
-        ![数据看板](https://www.buildingai.cc/summary/image%20(9).png)
+        ![供应商配置表单](https://www.buildingai.cc/summary/image%20(9).png)
       </Card>
     </CardGroup>
   </Step>
@@ -93,323 +124,457 @@ icon: 'grid-2'
   <Step title="添加模型">
     创建好供应商后，点击进入管理页面添加模型，填写完信息点击保存即可添加成功。
     
-    ![数据看板](https://www.buildingai.cc/summary/image%20(10).png)
+    ![添加模型界面](https://www.buildingai.cc/summary/image%20(10).png)
   </Step>
 </Steps>
+
+### 💰 模型计费设置
+
+可以针对不同模型设置使用权限和计费策略。
+
+<Note>
+**💡 重要提示**: 超级管理员可以使用全部模型，不受会员等级限制。
+</Note>
+
+![模型计费设置](https://www.buildingai.cc/summary/image%20(75).png)
+
+<Info>
+**📋 示例说明**: 某些模型指定会员可用的话，普通用户是无法使用这些模型进行对话，需要前往开通会员才能使用该模型。
+
+![会员模型示例](https://www.buildingai.cc/summary/image%20(76).png)
+</Info>
 
 ### 模型计费
 
-点击某一个供应商，进入模型管理，点开要设置模型旁边的编辑图标，进去设置计费即可。
+---
 
-指定某个会员等级可以使用该模型进行对话，不设置即表示全部用户都可使用。
+## 🤖 智能体
 
-<Note>
-**提示**: 超级管理员可以使用全部模型，不受会员等级限制。
-</Note>
+智能体是 BuildingAI 的重要功能，通过设置智能体的提示词、大模型等参数后，可发布到前台「智能体广场」供所有用户在线使用。
 
-![数据看板](https://www.buildingai.cc/summary/image%20(75).png)
-
-<Info>
-**示例**: 某些模型指定会员可用的话，普通用户是无法使用这些模型进行对话，需要前往开通会员才能使用该模型。
-
-![数据看板](https://www.buildingai.cc/summary/image%20(76).png)
-</Info>
-
-## 智能体
-
-用于管理和创建智能体，通过设置智能体的提示词、大模型等参数后，可发布到前台「智能体广场」供所有用户在线使用。
+### 功能特点
+- **创建与管理**: 支持多种方式创建智能体
+- **第三方集成**: 支持 Coze、Dify 等平台
+- **公开分享**: 可发布到智能体广场供用户使用
+- **灵活配置**: 支持角色设定、知识库关联等
 
 <Tabs>
-  <Tab title="智能体对话预览">
-    ![数据看板](https://www.buildingai.cc/summary/image%20(12).png)
+  <Tab title="智能体对话体验">
+    ![智能体前台体验](https://www.buildingai.cc/summary/image%20(12).png)
   </Tab>
-  <Tab title="后台预览">
-    ![数据看板](https://www.buildingai.cc/summary/image%20(13).png)
+  <Tab title="后台管理界面">
+    ![智能体后台管理](https://www.buildingai.cc/summary/image%20(13).png)
   </Tab>
 </Tabs>
 
-### 创建智能体
+### 🚀 创建智能体
 
-进入工作台，找到智能体，点击创建智能体，或从模板库中添加，也可以直接导入DSL。
+进入工作台，找到智能体菜单，点击「创建智能体」，或从模板库中添加，也可以直接导入DSL。
 
-![数据看板](https://www.buildingai.cc/summary/image%20(14).png)
+![创建智能体选项](https://www.buildingai.cc/summary/image%20(14).png)
 
-点击「创建智能体」，填写好智能体名称和描述，点击创建即进入智能体编排中
+点击「创建智能体」，填写好智能体名称和描述，点击创建即进入智能体编排界面。
 
-![数据看板](https://www.buildingai.cc/summary/image%20(15).png)
+![智能体创建表单](https://www.buildingai.cc/summary/image%20(15).png)
 
-### [Coze 智能体](https://www.buildingai.cc/docs/introduction/summary#coze-%E6%99%BA%E8%83%BD%E4%BD%93)
+### 🔗 Coze 智能体集成
 
-创建智能体时，选择Coze智能体，即对接 Coze 平台智能体，只需要填写coze对应的参数配置即可
+创建智能体时，选择 Coze 智能体，即对接 Coze 平台智能体，只需要填写 Coze 对应的参数配置即可。
 
-![数据看板](https://www.buildingai.cc/coze/image.png)![数据看板](https://www.buildingai.cc/coze/image%20(1).png)
+<Warning>
+**⚠️ 重要提醒**: 在 Coze 平台创建好的智能体，一定要发布为 API，然后点击发布，智能体才会生效。
+</Warning>
 
-⚠️ 这里需要特别注意的是：在Coze平台创建好的智能体，一定要发布为API，然后点击发布，智能体才会生效。
+![Coze 智能体配置](https://www.buildingai.cc/coze/image.png)
+![Coze 参数设置](https://www.buildingai.cc/coze/image%20(1).png)
 
-![数据看板](https://www.buildingai.cc/coze/image%20(2).png)
+#### 获取 Coze 配置信息
 
-1、获取API地址：进入Coze平台—>文档中心—>开发指南—>API调用，直接把[https://api.coze.cn](https://api.coze.cn/) 复制填到API端点地址输入框里
+<Steps>
+  <Step title="1. 获取 API 地址">
+    进入 Coze 平台 → 文档中心 → 开发指南 → API调用，直接把 [https://api.coze.cn](https://api.coze.cn/) 复制填到 API 端点地址输入框里
+    
+    ![获取 API 地址](https://www.buildingai.cc/coze/image%20(3).png)
+  </Step>
 
-![数据看板](https://www.buildingai.cc/coze/image%20(3).png)
+  <Step title="2. 获取 Bot ID">
+    打开智能体详情，链接后面的一串数字就是智能体的 ID
+    
+    ![获取 Bot ID](https://www.buildingai.cc/coze/image%20(4).png)
+  </Step>
 
-2、获取Bot ID：打开智能体详情，链接后面的一串数字就是智能体的ID
+  <Step title="3. 获取 API 密钥">
+    点击 API 管理页面，找到【授权】-【个人访问令牌】，直接添加令牌即可
 
-![数据看板](https://www.buildingai.cc/coze/image%20(4).png)
-
-3、获取API密钥：点击API管理页面，找到【授权】-【个人访问令牌】，直接添加令牌即可
-
-    ![数据看板](https://www.buildingai.cc/coze/image%20(5).png)
+    ![API 密钥管理](https://www.buildingai.cc/coze/image%20(5).png)
     
     <Note>
-    创建成功后切记要把令牌密钥保存好，只显示一次。
+    **🔐 安全提醒**: 创建成功后切记要把令牌密钥保存好，只显示一次。
     
-    ![数据看板](https://www.buildingai.cc/coze/image%20(6).png)
+    ![密钥保存提示](https://www.buildingai.cc/coze/image%20(6).png)
     </Note>
   </Step>
 
-  <Step title="填写配置">
-    在BuildingAI把相应字段填上即可。
+  <Step title="4. 填写配置">
+    在 BuildingAI 把相应字段填上即可。
     
-    ![数据看板](https://www.buildingai.cc/coze/image%20(7).png)
+    ![BuildingAI 配置界面](https://www.buildingai.cc/coze/image%20(7).png)
   </Step>
 </Steps>
 
-### Dify智能体
+### 🛠️ Dify 智能体集成
 
-![数据看板](https://www.buildingai.cc/coze/image%20(8).png)
+<Card>
+![Dify 智能体](https://www.buildingai.cc/coze/image%20(8).png)
+</Card>
+
+#### 获取 Dify 配置信息
 
 <AccordionGroup>
-  <Accordion title="获取API地址" icon="link">
-    ![数据看板](https://www.buildingai.cc/coze/image%20(9).png)
+  <Accordion title="获取 API 地址" icon="link">
+    ![Dify API 地址获取](https://www.buildingai.cc/coze/image%20(9).png)
   </Accordion>
 
-  <Accordion title="获取API密钥" icon="key">
-    ![数据看板](https://www.buildingai.cc/coze/image%20(10).png)
+  <Accordion title="获取 API 密钥" icon="key">
+    ![Dify API 密钥获取](https://www.buildingai.cc/coze/image%20(10).png)
   </Accordion>
 </AccordionGroup>
 
-在BuildingAI直接填写上对应字段即可。
+在 BuildingAI 直接填写上对应字段即可。
 
-![数据看板](https://www.buildingai.cc/coze/image%20(11).png)
+![Dify 配置完成](https://www.buildingai.cc/coze/image%20(11).png)
 
-### [智能体模型](https://www.buildingai.cc/docs/introduction/summary#%E6%99%BA%E8%83%BD%E4%BD%93%E6%A8%A1%E5%9E%8B)
+### 🎭 智能体模型设置
 
 创建智能体时，需要设置一个对话模型，才能正常对话。
 
-如果站长设置的模型为会员模型，那么用户在前台智能体广场和该智能体对话时，也要开通相应的会员等级后才能进行对话。
+<Info>
+**💡 重要提醒**: 如果站长设置的模型为会员模型，那么用户在前台智能体广场和该智能体对话时，也要开通相应的会员等级后才能进行对话。
+</Info>
 
-![数据看板](https://www.buildingai.cc/summary/image%20(77).png)
+![智能体模型选择](https://www.buildingai.cc/summary/image%20(77).png)
 
-### [智能体编排](https://www.buildingai.cc/docs/introduction/summary#%E6%99%BA%E8%83%BD%E4%BD%93%E7%BC%96%E6%8E%92)
+### 🎨 智能体编排
 
-功能配置 角色设定：定义智能体的身份、性格、专业领域和行为准则
+智能体编排是创建智能体的核心环节，通过以下配置打造专属的AI助手：
 
-表单变量：变量将以表单形式让用户在对话前填写；用户填写的表单内容将自动替换角色设定中的变量。
+#### 🛠️ 功能配置
 
-![数据看板](https://www.buildingai.cc/summary/image%20(16).png)
+##### 角色设定
+定义智能体的身份、性格、专业领域和行为准则，为AI设定独特的个性和专业背景。
 
-关联知识库：关联知识库后，智能体将根据这些知识库的内容回答用户问题。
+##### 表单变量
+变量将以表单形式让用户在对话前填写；用户填写的表单内容将自动替换角色设定中的变量。
 
-MCP 工具：支持在智能体中添加MCP工具
+![表单变量设置](https://www.buildingai.cc/summary/image%20(16).png)
 
-对话上下文：在智能体回复时，显示对话上下文
+##### 知识库关联
+关联知识库后，智能体将根据这些知识库的内容回答用户问题，大大提升回答的准确性和专业性。
 
-引用来源：当回答引用了文档后，可查看回答对应的文档来源
+##### MCP 工具
+支持在智能体中添加MCP工具，增强智能体的功能能力。
 
-问答标注：支持管理员和用户标注问题和答案
+##### 对话上下文
+在智能体回复时，显示对话上下文，提供更好的对话连续性。
 
-公开智能体：公开后的智能体将会在前台智能体广场列表中可见
+##### 引用来源
+当回答引用了文档后，可查看回答对应的文档来源，增加可信度。
 
-**界面配置**
+##### 问答标注
+支持管理员和用户标注问题和答案，持续优化智能体表现。
 
-开场白：打开聊天窗口主动发送
+##### 公开智能体
+公开后的智能体将会在前台智能体广场列表中可见，供所有用户使用。
 
-开场问题：预设好几个问题，用户无需手动输入，点击可快捷发送
+#### 🎨 界面配置
 
-![数据看板](https://www.buildingai.cc/summary/image%20(17).png)
+##### 开场白
+打开聊天窗口主动发送欢迎信息，给用户留下良好第一印象。
 
-自动追问：在智能体回复后，自动根据对话内容提供给用户3条问题建议 快捷指令：展示在对话框上方的指令按钮，用户可快速发起预设对话或指令
+##### 开场问题
+预设好几个问题，用户无需手动输入，点击可快捷发送，降低使用门槛。
 
-![数据看板](https://www.buildingai.cc/summary/image%20(18).png)
+![开场问题设置](https://www.buildingai.cc/summary/image%20(17).png)
 
-对话头像：自定义智能体的对话头像
+##### 自动追问
+在智能体回复后，自动根据对话内容提供给用户3条问题建议，引导用户深入交流。
 
-![数据看板](https://www.buildingai.cc/summary/image%20(19).png)
+##### 快捷指令
+展示在对话框上方的指令按钮，用户可快速发起预设对话或指令，提升用户体验。
 
-计费配置 智能体单独设置计费，用户在前台智能体广场和智能体对话所消耗的计费
+![快捷指令设置](https://www.buildingai.cc/summary/image%20(18).png)
 
-### [智能体发布](https://www.buildingai.cc/docs/introduction/summary#%E6%99%BA%E8%83%BD%E4%BD%93%E5%8F%91%E5%B8%83)
+##### 对话头像
+自定义智能体的对话头像，让智能体更具个性化特征。
 
-*   发布为链接
-    
-*   嵌入代码
-    
-*   API调用
-    
+![对话头像设置](https://www.buildingai.cc/summary/image%20(19).png)
 
-![数据看板](https://www.buildingai.cc/summary/image%20(20).png)
+#### 💰 计费配置
+智能体单独设置计费，用户在前台智能体广场和智能体对话所消耗的计费。
 
-### [智能体广场](https://www.buildingai.cc/docs/introduction/summary#%E6%99%BA%E8%83%BD%E4%BD%93%E5%B9%BF%E5%9C%BA)
+### 📤 智能体发布
 
-站长在后台创建智能体时，可以选择公开智能体，公开后的智能体会在前台的智能体广场显示
+智能体创建完成后，可以通过多种方式发布和使用：
 
-![数据看板](https://www.buildingai.cc/summary/image%20(68).png)![数据看板](https://www.buildingai.cc/summary/image%20(69).png)
+- **🔗 发布为链接**: 生成分享链接，方便传播和使用
+- **💻 嵌入代码**: 将智能体嵌入到网站或应用中
+- **🔌 API调用**: 通过API方式调用智能体功能
 
-### [广告设置](https://www.buildingai.cc/docs/introduction/summary#%E5%B9%BF%E5%91%8A%E8%AE%BE%E7%BD%AE)
+![智能体发布选项](https://www.buildingai.cc/summary/image%20(20).png)
 
-支持在后台自定义装修智能体广场的广告图、跳转链接
+### 🏪 智能体广场
 
-![数据看板](https://www.buildingai.cc/summary/image%20(21).png)![数据看板](https://www.buildingai.cc/summary/image%20(22).png)
+站长在后台创建智能体时，可以选择公开智能体，公开后的智能体会在前台的智能体广场显示。
+
+<CardGroup cols={2}>
+  <Card>
+    ![智能体广场列表](https://www.buildingai.cc/summary/image%20(68).png)
+  </Card>
+  <Card>
+    ![智能体广场详情](https://www.buildingai.cc/summary/image%20(69).png)
+  </Card>
+</CardGroup>
+
+### 📢 广告设置
+
+支持在后台自定义装修智能体广场的广告图、跳转链接，提升用户体验和商业价值。
+
+<CardGroup cols={2}>
+  <Card>
+    ![广告设置界面](https://www.buildingai.cc/summary/image%20(21).png)
+  </Card>
+  <Card>
+    ![广告效果预览](https://www.buildingai.cc/summary/image%20(22).png)
+  </Card>
+</CardGroup>
 
 [知识库](https://www.buildingai.cc/docs/introduction/summary#%E7%9F%A5%E8%AF%86%E5%BA%93)
---------------------------------------------------------------------------------------
+---
 
-用于管理和创建知识库，可以导入不同格式的文件资料，使用AI进行自动清洗和向量化处理后，结合智能体使用，从而增强AI对于回答的精准度。使用场景包括企业智能客服、产品知识问答、企业文档查询等等，支持对知识库进行多角色权限控制，有效进行数据隔离。
+## 📚 知识库
 
-### [创建知识库](https://www.buildingai.cc/docs/introduction/summary#%E5%88%9B%E5%BB%BA%E7%9F%A5%E8%AF%86%E5%BA%93)
+知识库是 BuildingAI 的核心功能之一，用于管理和创建知识库，可以导入不同格式的文件资料，使用AI进行自动清洗和向量化处理后，结合智能体使用，从而增强AI对于回答的精准度。
 
-进入工作台，找到知识库菜单，点击「创建知识库」
+### 🎯 使用场景
+- **企业智能客服**: 基于企业文档创建智能客服系统
+- **产品知识问答**: 打造专业的产品知识问答系统
+- **企业文档查询**: 快速检索和查询企业文档资料
+- **多角色权限控制**: 支持数据隔离，保护敏感信息
 
-![数据看板](https://www.buildingai.cc/summary/image%20(23).png)
+### 🚀 创建知识库
+
+进入工作台，找到知识库菜单，点击「创建知识库」。
+
+![创建知识库入口](https://www.buildingai.cc/summary/image%20(23).png)
 
 输入知识库名称、描述、选择Embedding（向量）模型、然后上传文件即可。
 
-![数据看板](https://www.buildingai.cc/summary/image%20(24).png)
+![知识库创建表单](https://www.buildingai.cc/summary/image%20(24).png)
 
-如何设置Embedding（向量）模型？
+#### 🔧 Embedding 模型设置
 
-要开启模型类型为Embedding模型的，才可以在知识库的Embedding模型中选择
+要开启模型类型为Embedding模型的，才可以在知识库的Embedding模型中选择。
 
-![数据看板](https://www.buildingai.cc/summary/image%20(25).png)![数据看板](https://www.buildingai.cc/summary/image%20(26).png)
+<CardGroup cols={2}>
+  <Card>
+    ![Embedding 模型开启](https://www.buildingai.cc/summary/image%20(25).png)
+  </Card>
+  <Card>
+    ![Embedding 模型选择](https://www.buildingai.cc/summary/image%20(26).png)
+  </Card>
+</CardGroup>
 
-### [知识库权限](https://www.buildingai.cc/docs/introduction/summary#%E7%9F%A5%E8%AF%86%E5%BA%93%E6%9D%83%E9%99%90)
+### 👥 知识库权限管理
 
 个人创建的知识库，可以邀请其他成员（有后台管理员身份的用户）一起协作管理；有权限的成员才能看到你创建的知识库：
 
-*   管理者：拥有全部权限，管理整个知识库的全部数据和信息
-    
-*   编辑者：只能操作文档功能，增删改查自己的文档数据，不能修改他人的
-    
-*   查看者：只能查看知识库所有数据，不能编辑
-    
+- **👑 管理者**: 拥有全部权限，管理整个知识库的全部数据和信息
+- **✏️ 编辑者**: 只能操作文档功能，增删改查自己的文档数据，不能修改他人的
+- **👁️ 查看者**: 只能查看知识库所有数据，不能编辑
 
-![数据看板](https://www.buildingai.cc/summary/image%20(27).png)
+![知识库权限设置](https://www.buildingai.cc/summary/image%20(27).png)
 
-[MCP工具](https://www.buildingai.cc/docs/introduction/summary#mcp%E5%B7%A5%E5%85%B7)
-----------------------------------------------------------------------------------
+---
 
-用于管理和创建 MCP 服务，支持手动创建和使用 JSON 导入，支持 SSE 类型的链接模式。MCP 服务会显示在前台「对话」功能的「工具」中，用户可选择合适的 MCP 工具来增强AI回答效果，例如使用"联网搜索"MCP工具，AI回答会自动联网获取最新数据来回复用户，有效增强回答的实时性。
+## 🔧 MCP工具
 
-### [前台创建MCP](https://www.buildingai.cc/docs/introduction/summary#%E5%89%8D%E5%8F%B0%E5%88%9B%E5%BB%BAmcp)
+MCP（Model Context Protocol）工具用于管理和创建MCP服务，支持手动创建和使用JSON导入，支持SSE类型的链接模式。MCP服务会显示在前台「对话」功能的「工具」中，用户可选择合适的MCP工具来增强AI回答效果。
 
-在前台个人中心找到「MCP设置」，点击快速创建 或 JSON导入其中一种方式，按照提示填写好信息即可
+### 💡 应用场景
+例如使用"联网搜索"MCP工具，AI回答会自动联网获取最新数据来回复用户，有效增强回答的实时性。
 
-![数据看板](https://www.buildingai.cc/summary/image%20(28).png)
+### 🌐 前台创建MCP
 
-### [后台创建MCP](https://www.buildingai.cc/docs/introduction/summary#%E5%90%8E%E5%8F%B0%E5%88%9B%E5%BB%BAmcp)
+在前台个人中心找到「MCP设置」，点击快速创建或JSON导入其中一种方式，按照提示填写好信息即可。
 
-后台创建的MCP属于系统MCP，创建好的MCP直接显示在前台给用户使用
+![前台MCP创建](https://www.buildingai.cc/summary/image%20(28).png)
 
-![数据看板](https://www.buildingai.cc/summary/image%20(29).png)![数据看板](https://www.buildingai.cc/summary/image%20(30).png)
+### 🏢 后台创建MCP
 
-### [MCP快捷菜单设置](https://www.buildingai.cc/docs/introduction/summary#mcp%E5%BF%AB%E6%8D%B7%E8%8F%9C%E5%8D%95%E8%AE%BE%E7%BD%AE)
+后台创建的MCP属于系统MCP，创建好的MCP直接显示在前台给用户使用。
 
-此功能在后台创建MCP时才会有，只能设置一个MCP为快捷菜单。如果开启的话，该MCP将会在前台AI对话框中显示
+<CardGroup cols={2}>
+  <Card>
+    ![后台MCP管理](https://www.buildingai.cc/summary/image%20(29).png)
+  </Card>
+  <Card>
+    ![MCP创建界面](https://www.buildingai.cc/summary/image%20(30).png)
+  </Card>
+</CardGroup>
 
-![数据看板](https://www.buildingai.cc/summary/image%20(31).png)
+### ⚡ MCP快捷菜单设置
+
+此功能在后台创建MCP时才会有，只能设置一个MCP为快捷菜单。如果开启的话，该MCP将会在前台AI对话框中显示。
+
+![MCP快捷菜单设置](https://www.buildingai.cc/summary/image%20(31).png)
 
 [密钥管理](https://www.buildingai.cc/docs/introduction/summary#%E5%AF%86%E9%92%A5%E7%AE%A1%E7%90%86)
-------------------------------------------------------------------------------------------------
+---
 
-### [密钥模板](https://www.buildingai.cc/docs/introduction/summary#%E5%AF%86%E9%92%A5%E6%A8%A1%E6%9D%BF)
+## 🔑 密钥管理
 
-添加密钥之前，首先要有对应的模板才可以添加
+密钥管理是 BuildingAI 系统安全的重要组成部分，用于管理各种API服务的密钥信息。
 
-系统模板：系统会内置好一些常见的模板
+### 📋 密钥模板
 
-*   自定义模板：如果没有符合自己的模板，可以自定义添加
+添加密钥之前，首先要有对应的模板才可以添加。
 
-![数据看板](https://www.buildingai.cc/summary/image%20(32).png)
+#### 系统模板
+系统会内置一些常见的模板，涵盖主流AI服务提供商。
 
-*   不同的供应商需要填写的字段不同，具体看api 平台有哪些字段
+#### 自定义模板
+如果没有符合需求的模板，可以自定义添加新的密钥模板。
 
-![数据看板](https://www.buildingai.cc/summary/image%20(33).png)
+<CardGroup cols={2}>
+  <Card>
+    ![密钥模板列表](https://www.buildingai.cc/summary/image%20(32).png)
+  </Card>
+  <Card>
+    ![模板字段配置](https://www.buildingai.cc/summary/image%20(33).png)
+  </Card>
+</CardGroup>
 
-### [添加密钥](https://www.buildingai.cc/docs/introduction/summary#%E6%B7%BB%E5%8A%A0%E5%AF%86%E9%92%A5)
+<Note>
+**📝 重要提醒**: 不同的供应商需要填写的字段不同，具体请参考各API平台的技术文档。
+</Note>
 
-模板字段的设置会和填写的密钥的字段相对应，新增密钥时，填写密钥名称，选择创建好的密钥模板，直接填写密钥即可添加完成。
+### ➕ 添加密钥
 
-![数据看板](https://www.buildingai.cc/summary/image%20(34).png)
+模板字段的设置会和填写的密钥字段相对应。新增密钥时，填写密钥名称，选择创建好的密钥模板，直接填写密钥即可添加完成。
 
-[应用管理](https://www.buildingai.cc/docs/introduction/summary#%E5%BA%94%E7%94%A8%E7%AE%A1%E7%90%86)
-------------------------------------------------------------------------------------------------
+![添加密钥界面](https://www.buildingai.cc/summary/image%20(34).png)
 
-### [平台密钥](https://www.buildingai.cc/docs/introduction/summary#%E5%B9%B3%E5%8F%B0%E5%AF%86%E9%92%A5)
+---
 
-如何获取平台密钥？
+## 📱 应用管理
 
-进入BuildingAI官网：[https://buildingai.cc/](https://buildingai.cc/)，登录后进入「我的必定」页面，点击创建智能体平台，创建完成后会有一个平台密钥，点击复制，填写到部署好的BuildingAI系统中的工作台，找到「平台密钥」填写上即可。
+应用管理功能允许站长管理各种应用插件和扩展服务。
 
-![数据看板](https://www.buildingai.cc/summary/image%20(35).png)![数据看板](https://www.buildingai.cc/summary/image%20(36).png)
+### 🔐 平台密钥
 
-### [我的应用](https://www.buildingai.cc/docs/introduction/summary#%E6%88%91%E7%9A%84%E5%BA%94%E7%94%A8)
+#### 获取平台密钥步骤
+
+1. 进入 BuildingAI 官网：[https://buildingai.cc/](https://buildingai.cc/)
+2. 登录后进入「我的必定」页面
+3. 点击创建智能体平台
+4. 创建完成后会有一个平台密钥
+5. 点击复制，填写到部署好的 BuildingAI 系统中的工作台
+6. 找到「平台密钥」填写上即可
+
+<CardGroup cols={2}>
+  <Card>
+    ![平台密钥获取](https://www.buildingai.cc/summary/image%20(35).png)
+  </Card>
+  <Card>
+    ![平台密钥配置](https://www.buildingai.cc/summary/image%20(36).png)
+  </Card>
+</CardGroup>
+
+### 🛠️ 我的应用
 
 通过平台密钥，可以获取到当前绑定的必定平台目前关联了哪些应用插件，可以进行安装、卸载、停用和启用。
 
-![数据看板](https://www.buildingai.cc/summary/image%20(37).png)
+![我的应用管理](https://www.buildingai.cc/summary/image%20(37).png)
 
-点击「应用管理」进去管理该应用的一些功能菜单
+点击「应用管理」进去管理该应用的一些功能菜单。
 
-![数据看板](https://www.buildingai.cc/summary/image%20(38).png)
+![应用管理详情](https://www.buildingai.cc/summary/image%20(38).png)
 
-除了使用在应用市场购买的应用插件之外，还可以添加本地开发应用
+除了使用在应用市场购买的应用插件之外，还可以添加本地开发应用。
 
-![数据看板](https://www.buildingai.cc/summary/image%20(39).png)
+![本地应用添加](https://www.buildingai.cc/summary/image%20(39).png)
 
 [对话管理](https://www.buildingai.cc/docs/introduction/summary#%E5%AF%B9%E8%AF%9D%E7%AE%A1%E7%90%86)
-------------------------------------------------------------------------------------------------
+---
 
-### [对话记录](https://www.buildingai.cc/docs/introduction/summary#%E5%AF%B9%E8%AF%9D%E8%AE%B0%E5%BD%95)
+## 💬 对话管理
 
-用户在使用「AI对话」功能后，将会产生对应的对话记录，管理员可以查看每条对话记录的内容和token消耗等信息
+对话管理功能帮助站长监控和分析用户与AI的交互情况。
 
-![数据看板](https://www.buildingai.cc/summary/image%20(40).png)
+### 📝 对话记录
 
-### [对话配置](https://www.buildingai.cc/docs/introduction/summary#%E5%AF%B9%E8%AF%9D%E9%85%8D%E7%BD%AE)
+用户在使用「AI对话」功能后，将会产生对应的对话记录，管理员可以查看每条对话记录的内容和token消耗等信息。
+
+![对话记录管理](https://www.buildingai.cc/summary/image%20(40).png)
+
+### ⚙️ 对话配置
 
 用于配置「AI对话」功能的前台界面，包括标题、示例问题等等均可自定义配置。
 
-![数据看板](https://www.buildingai.cc/summary/image%20(41).png)![数据看板](https://www.buildingai.cc/summary/image%20(42).png)
+<CardGroup cols={2}>
+  <Card>
+    ![对话配置界面](https://www.buildingai.cc/summary/image%20(41).png)
+  </Card>
+  <Card>
+    ![对话配置效果](https://www.buildingai.cc/summary/image%20(42).png)
+  </Card>
+</CardGroup>
 
-[用户管理](https://www.buildingai.cc/docs/introduction/summary#%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86)
-------------------------------------------------------------------------------------------------
+---
 
-### [用户列表](https://www.buildingai.cc/docs/introduction/summary#%E7%94%A8%E6%88%B7%E5%88%97%E8%A1%A8)
+## 👥 用户管理
 
-用于管理在站点注册的用户，可为其分配角色权限，如设置为管理员，让该用户可以访问后台（用于团队成员管理站点，请谨慎对普通用户开放管理权限）。
+用户管理功能是站点运营的核心，用于管理在站点注册的用户和其相关权限。
 
-![数据看板](https://www.buildingai.cc/summary/image%20(43).png)
+### 📋 用户列表
 
-*   支持后台手动创建新用户并绑定手机号或邮箱
-    
-*   支持调整用户积分余额
-    
-*   支持重置用户密码
-    
-*   支持停用用户（被停用的用户不能登录）
-    
+用于管理在站点注册的用户，可为其分配角色权限，如设置为管理员，让该用户可以访问后台。
 
-![数据看板](https://www.buildingai.cc/summary/image%20(44).png)![数据看板](https://www.buildingai.cc/summary/image%20(45).png)
+<Warning>
+**⚠️ 安全提醒**: 用于团队成员管理站点，请谨慎对普通用户开放管理权限。
+</Warning>
 
-### [充值管理](https://www.buildingai.cc/docs/introduction/summary#%E5%85%85%E5%80%BC%E7%AE%A1%E7%90%86)
+![用户列表管理](https://www.buildingai.cc/summary/image%20(43).png)
 
-用于设置充值套餐，开启后可在前台显示，用户可选择套餐并充值获取积分，积分可用于AI功能的消耗。例如「AI对话」设定为每1000Tokens消耗10积分，则用户需要先支付充值获取积分，才能使用该功能。充值套餐由站长自定义价格和积分值。
+#### 用户管理功能
+- **👤 手动创建用户**: 支持后台手动创建新用户并绑定手机号或邮箱
+- **💰 积分管理**: 支持调整用户积分余额
+- **🔑 密码重置**: 支持重置用户密码
+- **⏸️ 用户停用**: 支持停用用户（被停用的用户不能登录）
 
-![数据看板](https://www.buildingai.cc/summary/image%20(46).png)
+<CardGroup cols={2}>
+  <Card>
+    ![用户创建界面](https://www.buildingai.cc/summary/image%20(44).png)
+  </Card>
+  <Card>
+    ![用户权限设置](https://www.buildingai.cc/summary/image%20(45).png)
+  </Card>
+</CardGroup>
 
-前台效果
+### 💳 充值管理
 
-![数据看板](https://www.buildingai.cc/summary/image%20(47).png)
+用于设置充值套餐，开启后可在前台显示，用户可选择套餐并充值获取积分，积分可用于AI功能的消耗。
+
+<Info>
+**💡 计费示例**: 例如「AI对话」设定为每1000Tokens消耗10积分，则用户需要先支付充值获取积分，才能使用该功能。充值套餐由站长自定义价格和积分值。
+</Info>
+
+![充值套餐设置](https://www.buildingai.cc/summary/image%20(46).png)
+
+#### 前台效果
+用户可以在前台看到充值套餐选项并进行购买。
+
+![充值前台效果](https://www.buildingai.cc/summary/image%20(47).png)
 
 [订阅会员](https://www.buildingai.cc/docs/introduction/summary#%E8%AE%A2%E9%98%85%E4%BC%9A%E5%91%98)
 ------------------------------------------------------------------------------------------------
@@ -581,3 +746,49 @@ MCP 工具：支持在智能体中添加MCP工具
 ![数据看板](https://www.buildingai.cc/summary/image%20(66).png)
 
 这个APPID要和填写的支付证书是同一个公众号才可以
+
+---
+
+## 📋 文档总结
+
+BuildingAI 后台管理功能涵盖了AI应用的全生命周期管理，从基础的模型配置到高级的用户管理，为站长提供了完整的后台运营解决方案。
+
+### 🎯 核心功能模块
+
+| 功能模块 | 主要作用 | 重要性 |
+|---------|---------|--------|
+| 📊 数据看板 | 运营数据监控 | ⭐⭐⭐⭐⭐ |
+| 🤖 模型管理 | AI模型配置 | ⭐⭐⭐⭐⭐ |
+| 🤖 智能体 | AI助手创建 | ⭐⭐⭐⭐⭐ |
+| 📚 知识库 | 知识管理 | ⭐⭐⭐⭐ |
+| 🔧 MCP工具 | 工具扩展 | ⭐⭐⭐ |
+| 🔑 密钥管理 | 安全管理 | ⭐⭐⭐⭐ |
+| 📱 应用管理 | 插件管理 | ⭐⭐⭐ |
+| 💬 对话管理 | 交互监控 | ⭐⭐⭐⭐ |
+| 👥 用户管理 | 用户运营 | ⭐⭐⭐⭐⭐ |
+| 💎 订阅会员 | 会员体系 | ⭐⭐⭐⭐⭐ |
+| 🛒 订单管理 | 交易管理 | ⭐⭐⭐⭐ |
+| 🎨 DIY中心 | 页面定制 | ⭐⭐⭐ |
+
+### 🚀 快速上手指南
+
+1. **🔑 首先配置密钥管理** - 添加必要的API密钥
+2. **🤖 然后设置模型管理** - 启用需要的AI模型
+3. **📚 创建知识库** - 上传和配置知识文档
+4. **🤖 制作智能体** - 设计专属AI助手
+5. **👥 配置用户管理** - 设置用户权限和充值套餐
+6. **💎 启用会员系统** - 建立订阅会员体系
+
+### 💡 使用建议
+
+- **🔐 安全第一**: 妥善管理API密钥，避免泄露
+- **📊 定期监控**: 关注数据看板，了解系统运营状况
+- **🎯 用户体验**: 注重智能体和知识库的质量
+- **💰 合理定价**: 根据成本和用户需求制定合理的计费策略
+- **🔄 持续优化**: 根据用户反馈不断改进AI助手的表现
+
+通过合理使用这些功能模块，站长可以构建一个功能完善、用户体验优秀的AI服务平台。
+
+---
+
+*本文档最后更新时间：2025-12-27*
