@@ -51,16 +51,24 @@
               {
                 "group": "安装与体验",
                 "pages": [
-                  "introduction/bt",
-                  "introduction/demo",
-                  "introduction/docker",
-                  "introduction/manual"
+                  "tutorial/bt",
+                  "tutorial/demo",
+                  "tutorial/docker",
+                  "tutorial/manual"
+                ]
+              },
+              {
+                "group": "使用教程",
+                "pages": [
+                  "tutorial/course",
+                  "tutorial/diy",
+                  "tutorial/agent"
                 ]
               },
               {
                 "group": "官方素材",
                 "pages": [
-                  "introduction/design"
+                  "tutorial/design"
                 ]
               },
               {
@@ -121,7 +129,7 @@
               {
                 "group": "API 文档",
                 "pages": [
-                  "api-reference/introduction"
+                  "api-reference/tutorial"
                 ]
               },
               {
