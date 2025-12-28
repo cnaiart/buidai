@@ -44,6 +44,7 @@
                 "group": "入门指南",
                 "pages": [
                   "index",
+                  "project",
                   "quickstart",
                   "community"
                 ]
@@ -88,11 +89,11 @@
                 "group": "开发指南",
                 "pages": [
                   "develop/Preposition",
-                  "develop/build",
+                  
                   "develop/config",
                   "develop/develop",
                   "develop/directory",
-                  "develop/pcdevelop",
+                  "develop/development",
                   {
                     "group": "PC客户端",
                     "expanded": false,
