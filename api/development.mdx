@@ -1,0 +1,81 @@
+---
+title: '应用开发' 
+description: 'BuildingAI 应用开发指南 - 开发模式运行与调试'
+icon: "code"
+---
+
+# 应用开发
+
+BuildingAI 应用开发说明及环境配置指南。本指南将帮助您快速搭建开发环境，开始构建自定义应用和插件。
+
+## 开发模式运行应用
+
+在开发模式下运行 BuildingAI 应用，支持实时热更新和调试功能。
+
+### 前置准备
+
+在开始开发之前，需要确保开发环境的端口和容器配置正确。
+
+<Accordion title="检查 Docker 容器状态">
+确保 Docker 容器中的 `buildingai-nodejs` 容器已经停止或者删除，否则会占用端口。
+</Accordion>
+
+#### 1. 检查容器状态
+
+```bash
+docker ps
+```
+
+#### 2. 停止冲突容器
+
+若 `buildingai-nodejs` 容器依然存在并且处于运行状态，可以参考 [《部署文档》](https://www.buildingai.cc/docs/framework/develop) 进行停止/删除。
+
+### 运行应用
+
+按照以下步骤启动开发环境：
+
+#### 1. 启动主程序服务端和前端
+
+```bash
+pnpm dev:main
+```
+
+#### 2. 开发模式启动插件
+
+```bash
+cd extensions/{你的插件目录}
+pnpm dev
+```
+
+<Frame>
+![开发环境启动界面](https://www.buildingai.cc/_next/static/media/1.c4ab82d3.png)
+</Frame>
+
+## 开发环境特性
+
+### 实时热更新
+
+✅ **热更新支持**：修改插件目录下的文件时，页面和接口都会实时热更新
+
+- 前端页面自动刷新
+- 后端接口实时重载
+- 无需手动重启服务
+
+### 下一步操作
+
+现在你已经成功启动了开发环境，可以开始：
+
+1. 基于模板编写简单的拓展应用
+2. 自定义业务逻辑和界面
+3. 集成第三方服务和API
+4. 测试和调试应用功能
+
+## 相关文档
+
+<Card title="应用模板结构" icon="folder-tree" href="/api/template">
+了解 BuildingAI 应用的完整目录结构和文件组织方式
+</Card>
+
+<Card title="部署文档" icon="rocket" href="https://www.buildingai.cc/docs/framework/develop">
+完整的生产环境部署指南和配置说明
+</Card>

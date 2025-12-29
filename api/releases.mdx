@@ -1,0 +1,272 @@
+---
+title: '打包发布' 
+description: 'BuildingAI 应用打包发布指南 - 脚本与可视化两种方式详解'
+icon: "package"
+---
+
+# 打包发布
+
+BuildingAI 应用打包发布完整指南。本文档详细介绍如何将开发完成的应用打包成符合规范的标准代码包。
+
+<Warning>
+打包发布必须遵循 BuildingAI 的规范，否则会导致插件无法正常加载。
+</Warning>
+
+## 打包方式对比
+
+BuildingAI 支持以下两种应用打包方式：
+
+| 打包方式 | 适用场景 | 优势 | 特点 |
+|----------|----------|------|------|
+| **脚本打包** | 自动化部署 | 自动化程度高，批量处理 | 通过命令行交互操作 |
+| **可视化打包** | 手动操作 | 图形化界面，直观易用 | 通过Web界面操作 |
+
+## 脚本打包
+
+通过命令行工具进行自动化打包，适合CI/CD流程和批量处理场景。
+
+### 前置条件
+
+确保您已完成应用开发，并且代码可以通过编译和测试。
+
+### 操作步骤
+
+#### 1. 进入项目根目录
+
+```bash
+cd BuildingAI
+```
+
+#### 2. 执行打包命令
+
+```bash
+pnpm extension:release
+```
+
+#### 3. 交互式配置
+
+终端会出现如下交互界面：
+
+<Frame>
+![脚本打包交互界面](https://www.buildingai.cc/_next/static/media/1.0ddf0a67.png)
+</Frame>
+
+#### 4. 填写版本信息
+
+根据输入指引，依次输入：
+
+- **应用标识符**：应用的唯一标识
+- **目标版本号**：要发布的版本号
+- **是否重新构建**：选择是否需要重新构建插件
+
+<Note>
+如果您的代码包中的版本号忘记修改，不用担心，这个脚本会自动帮您修改为您输入的目标版本号。
+</Note>
+
+#### 5. 等待打包完成
+
+<Frame>
+![打包完成界面](https://www.buildingai.cc/_next/static/media/2.36f77679.png)
+</Frame>
+
+#### 6. 获取打包结果
+
+执行完成后，您可以在项目根目录下的 `releases` 目录下找到刚刚生成的该版本的标准代码包。
+
+<Frame>
+![打包结果目录](https://www.buildingai.cc/_next/static/media/3.053185c1.png)
+</Frame>
+
+### 自动化集成
+
+```bash
+# CI/CD 集成示例
+pnpm extension:release << EOF
+my-app
+1.0.0
+y
+EOF
+```
+
+## 可视化打包
+
+<Frame>
+![可视化打包功能开发中](https://via.placeholder.com/800x400/f0f9ff/0ea5e9?text=可视化打包功能正在开发中)
+</Frame>
+
+<Warning title="功能开发中">
+可视化打包功能正在完善中，敬请期待。预计将支持图形化界面操作，让打包过程更加直观便捷。
+</Warning>
+
+## 打包规范
+
+BuildingAI 对打包后的代码包有严格的目录结构要求，确保插件能够被正确识别和加载。
+
+### 允许的目录结构
+
+代码包中，一级目录下只能包含以下文件和目录：
+
+<Tabs>
+  <Tab title="完整文件列表">
+    ```
+    .output/              # 构建输出目录
+    build/                # 构建产物目录
+    src/                  # 源代码目录
+    storage/              # 文件存储目录
+    static/               # 静态资源目录
+    .gitkeep             # Git占位文件
+    .gitignore           # Git忽略配置
+    eslint.config.mjs    # ESLint配置
+    LICENSE              # 开源协议
+    manifest.json        # 应用清单
+    nuxt.config.ts       # Nuxt配置
+    README.md            # 项目说明
+    SEEDS.md            # 数据库种子说明
+    tsconfig.json        # TypeScript配置
+    tsconfig.web.json    # 前端TypeScript配置
+    tsconfig.api.json    # 后端TypeScript配置
+    tsup.config.ts       # 模块打包配置
+    package.json         # 项目配置
+    ```
+  </Tab>
+  <Tab title="必需文件">
+    | 文件/目录 | 重要性 | 说明 |
+    |-----------|--------|------|
+    | `manifest.json` | 🔴 必需 | 应用清单配置 |
+    | `package.json` | 🔴 必需 | 项目依赖配置 |
+    | `src/` | 🔴 必需 | 核心源代码 |
+    | `build/` | 🟡 推荐 | 构建产物 |
+    | `.gitignore` | 🟡 推荐 | Git配置 |
+    | `README.md` | 🟡 推荐 | 项目文档 |
+  </Tab>
+</Tabs>
+
+### 文件过滤规则
+
+<Accordion title="自动过滤的文件">
+以下文件和目录将被自动排除：
+- `node_modules/`
+- `.git/`
+- `*.log`
+- `.DS_Store`
+- `Thumbs.db`
+- 临时文件和缓存
+</Accordion>
+
+### 目录结构说明
+
+| 目录 | 作用 | 重要性 |
+|------|------|--------|
+| `.output/` | 构建后的生产文件 | 可选 |
+| `build/` | 编译后的静态文件 | 推荐 |
+| `src/` | 应用源代码 | 必需 |
+| `storage/` | 用户上传文件 | 可选 |
+| `static/` | 静态资源文件 | 可选 |
+
+## 质量保证
+
+### 版本管理
+
+<Check>
+**版本号规范**：遵循语义化版本控制（SemVer）
+- 主版本号：不兼容的API修改
+- 次版本号：向下兼容的功能性新增
+- 修订号：向下兼容的问题修正
+</Check>
+
+### 代码质量检查
+
+```bash
+# 打包前质量检查
+pnpm lint
+pnpm type-check
+pnpm test
+pnpm build
+```
+
+### 安全检查
+
+<Accordion title="安全检查清单">
+- [ ] 敏感信息清理（API密钥、密码等）
+- [ ] 依赖安全漏洞扫描
+- [ ] 代码静态分析
+- [ ] 权限配置验证
+</Accordion>
+
+## 常见问题
+
+<Accordion title="打包失败怎么办？">
+**常见原因及解决方案：**
+1. **编译错误**：检查TypeScript类型错误和构建配置
+2. **依赖缺失**：运行 `pnpm install` 安装所有依赖
+3. **版本冲突**：检查package.json中的版本约束
+4. **权限问题**：确保有写入releases目录的权限
+</Accordion>
+
+<Accordion title="如何验证打包结果？">
+**验证步骤：**
+1. 检查releases目录下的打包文件
+2. 解压并验证目录结构
+3. 运行 `pnpm install` 确保依赖完整
+4. 执行基础功能测试
+</Accordion>
+
+<Accordion title="支持哪些发布渠道？">
+**当前支持的发布方式：**
+- 本地文件打包
+- Git仓库标签
+- 内部文件服务器
+- 后续将支持更多发布渠道
+</Accordion>
+
+## 最佳实践
+
+### 1. 版本发布流程
+
+```mermaid
+graph LR
+    A[开发完成] --> B[代码审查]
+    B --> C[质量检查]
+    C --> D[构建测试]
+    D --> E[生成打包]
+    E --> F[部署发布]
+```
+
+### 2. 自动化建议
+
+<CardGroup>
+  <Card title="CI/CD集成" icon="workflow">
+    将打包流程集成到持续集成/持续部署流水线
+  </Card>
+  <Card title="自动化测试" icon="shield-check">
+    在打包前执行完整的测试套件
+  </Card>
+  <Card title="版本控制" icon="git-branch">
+    使用Git标签管理发布版本
+  </Card>
+</CardGroup>
+
+### 3. 发布检查清单
+
+<Checklist>
+- [ ] 代码完成并通过所有测试
+- [ ] 依赖版本锁定且安全
+- [ ] 配置文件正确无误
+- [ ] 文档更新完整
+- [ ] 打包测试成功
+- [ ] 回滚方案准备就绪
+</Checklist>
+
+## 相关文档
+
+<CardGroup>
+  <Card title="创建应用" icon="plus-circle" href="/api/create">
+    学习如何创建新的应用模板
+  </Card>
+  <Card title="模板结构" icon="folder-tree" href="/api/template">
+    了解应用目录结构和规范
+  </Card>
+  <Card title="应用开发" icon="code" href="/api/development">
+    开发环境搭建和调试指南
+  </Card>
+</CardGroup>

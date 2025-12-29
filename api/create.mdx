@@ -1,0 +1,143 @@
+---
+title: '创建应用' 
+description: 'BuildingAI 应用创建指南 - 可视化与命令行两种创建方式详解'
+icon: "plus-circle"
+---
+
+# 创建应用
+
+BuildingAI 提供了两种便捷的应用创建方式，帮助开发者快速生成标准化的应用开发模板。
+
+## 创建方式对比
+
+BuildingAI 支持以下两种应用创建方式：
+
+| 创建方式 | 适用场景 | 优势 | 特点 |
+|----------|----------|------|------|
+| **可视化创建** | 初次使用者 | 简单直观，图形化界面 | 通过Web界面操作 |
+| **命令行创建** | 高级开发者 | 自动化程度高，批量操作 | 通过终端命令操作 |
+
+## 可视化创建
+
+通过BuildingAI的Web界面创建应用，操作简单直观。
+
+### 操作步骤
+
+#### 1. 进入创建界面
+![可视化创建界面](https://www.buildingai.cc/_next/static/media/1.b7228eef.png)
+
+#### 2. 配置应用信息
+![应用配置界面](https://www.buildingai.cc/_next/static/media/2.ee08fe33.png)
+
+#### 3. 等待应用生成
+系统会显示应用创建的进度状态。
+
+<Warning>
+刚安装完可能会出现短暂的服务中断，那是因为应用需要重启以重新载入刚刚创建的应用。
+</Warning>
+
+![应用创建进度](https://www.buildingai.cc/_next/static/media/3.d3c2f438.png)
+
+#### 4. 查看生成结果
+此时打开源代码目录，可以看到在根目录的 `extensions` 目录下生成了刚刚创建的应用文件夹，里面包含了一个应用示例模板。
+
+<Frame>
+![生成的应用模板](https://www.buildingai.cc/_next/static/media/4.8df0c92b.png)
+</Frame>
+
+## 命令行创建
+
+通过终端命令创建应用，适合自动化和批量操作场景。
+
+### 前置条件
+
+确保本地已安装 `pnpm` 包管理器。
+
+### 操作步骤
+
+#### 1. 进入项目根目录
+
+```bash
+cd BuildingAI
+```
+
+#### 2. 执行创建命令
+
+```bash
+pnpm extension:create
+```
+
+#### 3. 交互式配置
+此时，终端会出现如下交互界面：
+
+<Frame>
+![命令行交互界面](https://www.buildingai.cc/_next/static/media/5.7af87e39.png)
+</Frame>
+
+#### 4. 填写应用信息
+根据输入指引，依次输入以下信息：
+
+- **应用标识符**：唯一标识符
+- **应用名称**：显示名称
+- **应用版本号**：版本信息
+- **应用描述**：功能描述
+- **应用作者**：开发者信息
+- **应用作者主页**：联系地址
+
+![应用信息配置](https://www.buildingai.cc/_next/static/media/6.0da9cefa.png)
+
+#### 5. 确认创建完成
+等待命令执行完成后出现如下提示则说明创建成功：
+
+<Frame>
+![创建成功提示](https://www.buildingai.cc/_next/static/media/7.99b12b4d.png)
+</Frame>
+
+#### 6. 重新载入应用
+
+```bash
+# 重启服务以载入新创建的应用
+pnpm dev:main
+```
+
+## 创建结果
+
+### 文件位置
+无论通过哪种方式创建，最终应用都会生成在根目录下的 `extensions` 目录下。
+
+```
+BuildingAI/
+└── extensions/
+    └── {your-app-name}/
+        ├── manifest.json
+        ├── package.json
+        ├── README.md
+        └── ... (应用模板文件)
+```
+
+### 下一步操作
+
+成功创建应用模板后，您可以：
+
+<CardGroup>
+  <Card title="查看模板结构" icon="folder-tree" href="/api/template">
+    了解生成的应用模板目录结构和文件组织
+  </Card>
+  <Card title="开始开发" icon="code" href="/api/development">
+    进入开发环境，开始编写应用代码
+  </Card>
+</CardGroup>
+
+## 常见问题
+
+<Accordion title="创建失败怎么办？">
+  - 检查网络连接是否正常
+  - 确认pnpm版本是否符合要求
+  - 查看控制台错误信息
+</Accordion>
+
+<Accordion title="如何修改已创建的应用信息？">
+  - 编辑 `manifest.json` 文件
+  - 更新 `package.json` 中的应用信息
+  - 重启服务使更改生效
+</Accordion>

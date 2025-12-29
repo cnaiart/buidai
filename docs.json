@@ -125,21 +125,25 @@
             ]
           },
           {
-            "tab": "API 参考",
+            "tab": "应用开发",
             "groups": [
               {
-                "group": "API 文档",
+                "group": "应用开发",
                 "pages": [
-                  "api-reference/tutorial"
+                  "api/introduction",
+                  "api/create",
+                  "api/template",
+                  "api/development",
+                  "api/releases"
                 ]
               },
               {
                 "group": "端点示例",
                 "pages": [
-                  "api-reference/endpoint/create",
-                  "api-reference/endpoint/delete",
-                  "api-reference/endpoint/get",
-                  "api-reference/endpoint/webhook"
+                  "api/endpoint/create",
+                  "api/endpoint/delete",
+                  "api/endpoint/get",
+                  "api/endpoint/webhook"
                 ]
               }
             ]

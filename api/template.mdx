@@ -1,0 +1,236 @@
+---
+title: '模板结构' 
+description: 'BuildingAI 应用模板完整目录结构指南 - 从根目录到核心模块的详细说明'
+icon: "folder-tree"
+---
+
+# 模板结构
+
+BuildingAI 应用模板的完整目录结构说明。本指南将详细介绍每个目录和文件的作用，帮助开发者正确构建符合标准的企业级应用。
+
+<Warning>
+插件开发时，必须遵循如下目录结构，否则 BuildingAI 将无法识别和加载插件。
+</Warning>
+
+## 完整目录结构
+
+<Tabs>
+  <Tab title="目录树">
+    ```text
+    应用模板/
+    ├── .gitignore              # Git版本控制忽略文件配置
+    ├── README.md               # 项目说明文档
+    ├── SEEDS.md               # 数据库种子数据说明
+    ├── LICENSE                # 开源协议文件
+    ├── package.json           # 项目依赖和脚本配置
+    ├── tsconfig.json          # TypeScript编译配置
+    ├── tsconfig.web.json      # 前端TypeScript配置
+    ├── tsup.config.ts         # 模块打包工具配置
+    ├── nuxt.config.ts         # Nuxt.js框架配置
+    ├── manifest.json          # 应用清单配置
+    ├── eslint.config.mjs      # 代码质量检查配置
+    ├── data/                  # 应用文件数据存储
+    ├── storage/               # 文件存储目录
+    └── src/                   # 核心源代码
+        ├── web/               # 前端应用 (Nuxt.js)
+        │   ├── app.vue        # 应用根组件
+        │   ├── app.config.ts  # 应用配置文件
+        │   ├── app.config.presets.ts  # 应用预设配置
+        │   ├── router.options.ts      # 路由配置
+        │   ├── middleware/            # Nuxt中间件
+        │   ├── layouts/              # 页面布局
+        │   ├── pages/                # 页面文件
+        │   ├── components/           # Vue组件
+        │   ├── stores/               # Pinia状态管理
+        │   ├── assets/               # 静态资源
+        │   ├── i18n/                 # 国际化配置
+        │   └── services/             # API接口封装
+        └── api/             # 后端业务逻辑
+            ├── index.ts      # 应用入口文件
+            ├── upgrade/      # 版本升级脚本
+            ├── static/       # 静态资源服务
+            ├── db/           # 数据库相关
+            │   ├── migrations/     # 数据库迁移文件
+            │   ├── seeds/          # 种子数据
+            │   └── entities/       # 数据实体模型
+            └── modules/     # 业务模块
+                ├── app.module.ts    # 模块统一出入口
+                └── {module name}/   # 具体业务模块
+                    ├── {module name}.module.ts  # 模块定义
+                    ├── dto/                     # 数据传输对象
+                    ├── controllers/             # 控制器
+                    │   ├── web/{module}.controller.ts    # Web接口
+                    │   └── console/{module}.controller.ts # 管理接口
+                    └── services/{module}.service.ts      # 业务逻辑
+    ```
+  </Tab>
+  <Tab title="文件详情">
+    | 层级 | 类型 | 名称 | 说明 | 必需 |
+    |------|------|------|------|------|
+    | 根目录 | 文件 | `.gitignore` | Git忽略配置 | ✅ |
+    | 根目录 | 文件 | `README.md` | 项目文档 | ✅ |
+    | 根目录 | 文件 | `package.json` | 项目配置 | ✅ |
+    | 根目录 | 文件 | `manifest.json` | 应用清单 | ✅ |
+    | 根目录 | 目录 | `src/` | 核心源码 | ✅ |
+    | 前端 | 目录 | `src/web/` | Nuxt.js应用 | ✅ |
+    | 前端 | 文件 | `src/web/app.vue` | 应用根组件 | ✅ |
+    | 后端 | 目录 | `src/api/` | 业务逻辑 | ✅ |
+    | 后端 | 文件 | `src/api/index.ts` | 入口文件 | ✅ |
+    | 数据库 | 目录 | `src/api/db/` | 数据库层 | 可选 |
+  </Tab>
+</Tabs>
+
+## 目录详细说明
+
+### 根目录配置文件
+
+#### 项目基础文件
+
+| 文件 | 作用 | 重要性 |
+|------|------|--------|
+| `package.json` | 项目依赖和脚本配置 | 🔴 必需 |
+| `manifest.json` | 应用元数据和配置 | 🔴 必需 |
+| `tsconfig.json` | TypeScript编译配置 | 🟡 推荐 |
+| `nuxt.config.ts` | Nuxt.js框架配置 | 🔴 必需 |
+
+#### 开发配置文件
+
+<Accordion title="TypeScript配置">
+**tsconfig.json** - 后端TypeScript配置
+**tsconfig.web.json** - 前端TypeScript配置  
+确保前后端类型检查的独立性
+</Accordion>
+
+<Accordion title="代码质量配置">
+**eslint.config.mjs** - 代码规范检查
+**tsup.config.ts** - 模块打包配置
+保证代码质量和构建一致性
+</Accordion>
+
+### 核心源代码结构
+
+#### `src/web/` - 前端应用目录
+
+Nuxt.js 3 构建的现代化前端应用
+
+| 目录/文件 | 功能说明 | 技术栈 |
+|-----------|----------|--------|
+| `app.vue` | 应用根组件 | Vue 3 |
+| `layouts/` | 页面布局组件 | Vue + Nuxt |
+| `pages/` | 路由页面文件 | Nuxt File-based Routing |
+| `components/` | 可复用组件 | Vue 3 Components |
+| `stores/` | Pinia状态管理 | Pinia |
+| `middleware/` | 路由中间件 | Nuxt Middleware |
+| `services/` | API调用封装 | Axios/Fetch |
+
+#### `src/api/` - 后端业务逻辑
+
+基于 NestJS 架构的后端服务
+
+| 模块 | 功能 | 说明 |
+|------|------|------|
+| `modules/` | 业务模块 | 按功能划分的独立模块 |
+| `db/` | 数据访问层 | 数据库操作和模型 |
+| `controllers/` | 接口控制器 | HTTP请求处理 |
+| `services/` | 业务逻辑 | 核心业务逻辑实现 |
+| `dto/` | 数据传输对象 | API接口参数定义 |
+
+## 模块化开发最佳实践
+
+### 1. 业务模块结构
+
+```typescript
+// 标准模块结构示例
+src/api/modules/user/
+├── user.module.ts           // 模块定义
+├── dto/                     // 数据传输对象
+│   ├── create-user.dto.ts
+│   ├── update-user.dto.ts
+│   └── user-response.dto.ts
+├── controllers/             // 控制器
+│   ├── web/user.controller.ts    // Web API
+│   └── console/user.controller.ts // 管理API
+└── services/                // 业务逻辑
+    └── user.service.ts
+```
+
+### 2. 前后端协作规范
+
+<CardGroup>
+  <Card title="API接口设计" icon="plug">
+    遵循RESTful API设计原则
+  </Card>
+  <Card title="数据格式统一" icon="database">
+    使用DTO进行数据传输
+  </Card>
+  <Card title="状态管理" icon="layers">
+    前端使用Pinia统一状态管理
+  </Card>
+</CardGroup>
+
+### 3. 开发工作流
+
+```bash
+# 开发流程
+1. 创建应用模板
+2. 定义数据模型 (entities)
+3. 实现业务逻辑 (services)
+4. 开发API接口 (controllers)
+5. 构建前端界面 (web/)
+6. 集成测试和调试
+```
+
+## 重要注意事项
+
+<Warning title="目录结构严格要求">
+BuildingAI 依赖特定的目录结构来识别和加载插件，修改核心目录结构可能导致应用无法正常加载。
+</Warning>
+
+### 核心原则
+
+1. **🔒 结构完整性**
+   - 严格按照标准目录结构组织文件
+   - 保持核心文件和目录的完整性
+
+2. **🎯 模块化设计**
+   - 按业务功能进行模块划分
+   - 每个模块独立管理和测试
+
+3. **⚡ 前后端分离**
+   - web目录专注前端界面和交互
+   - api目录专注后端逻辑和数据处理
+
+4. **⚙️ 配置驱动**
+   - 通过manifest.json定义应用行为
+   - 使用配置文件管理环境设置
+
+### 常见问题解决
+
+<Accordion title="插件无法加载？">
+检查以下项目：
+- manifest.json 配置是否正确
+- 目录结构是否符合标准
+- package.json 依赖是否完整
+- TypeScript编译是否通过
+</Accordion>
+
+<Accordion title="前后端通信异常？">
+验证以下配置：
+- API接口地址配置
+- CORS跨域设置
+- 认证token传递
+- 数据格式一致性
+</Accordion>
+
+## 相关文档
+
+<CardGroup>
+  <Card title="创建应用" icon="plus-circle" href="/api/create">
+    学习如何创建新的应用模板
+  </Card>
+  <Card title="应用开发" icon="code" href="/api/development">
+    了解开发环境的搭建和使用
+  </Card>
+</CardGroup>
+
+
